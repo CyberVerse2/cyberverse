@@ -1,6 +1,10 @@
 import './App.css';
+import About from './components/About';
+import Ending from './components/Ending';
+import Footer from './components/Footer';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
+import Products from './components/Products';
 import RootLayout from './components/RootLayout';
 
 function App() {
@@ -15,10 +19,10 @@ function App() {
   return <RootLayout>
     <Navbar />
     <Hero />
-    {/* <About />
+    <About />
     <Products />
-    <Bio />
-    <Footer/> */} 
+    <Ending/>
+    <Footer/>
   </RootLayout>;
 }
 

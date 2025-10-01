@@ -8,8 +8,8 @@ export default function About() {
             At Cyberverse Labs, We experiment, we ship, we break things, and we rebuild them better.
             Our playground is AI, crypto, and apps, but really, it’s the edge of what’s possible.
           </p>
-          <button></button>
-          <img src="" alt="" />
+          <button>Let's Build!</button>
+          <img src="./about-img.png" alt="" />
         </div>
       </div>
     </section>
