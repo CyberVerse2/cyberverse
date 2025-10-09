@@ -1,23 +1,20 @@
 @import "tailwindcss";
 
 @tailwind utilities;
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-}
 :root{
   --button-color: #309FE9;
-  --main-color: #030F1B;
+  --main-color: #000000;
   --page-color: #FFFFFF;
 
 }
 html {
   font-size: 10px;
-  font-family: "Inter", sans-serif;
+  font-family: "Bricolage Grotesque", sans-serif;
 }
 body {
   font-size: 1.6rem; /* For Responsive Layout*/
 }
+/* 
+* {
+  outline: 1px solid red !important;
+} */
