@@ -1,18 +1,21 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @tailwind utilities;
-:root{
-  --button-color: #309FE9;
+:root {
+  --button-color: #309fe9;
   --main-color: #000000;
-  --page-color: #FFFFFF;
-
+  --page-color: #ffffff;
 }
 html {
   font-size: 10px;
-  font-family: "Bricolage Grotesque", sans-serif;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  overflow-x: hidden;
 }
 body {
   font-size: 1.6rem; /* For Responsive Layout*/
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 /* 
 * {
