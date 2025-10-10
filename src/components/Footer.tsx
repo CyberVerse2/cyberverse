@@ -22,17 +22,30 @@ export default function Footer() {
         <div>
           <ul className="flex items-center w-full">
             <li className="px-2">
-              <a href="https://x.com/cyberverselabs" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+              <a
+                href="https://x.com/cyberverselabs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+              >
                 <img src="./x.svg" alt="x" />
               </a>
             </li>
             <li className="px-2">
-              <a href="mailto:ejioforcelestine77@gmail.com" className="hover:opacity-80 transition-opacity">
+              <a
+                href="mailto:ejioforcelestine77@gmail.com"
+                className="hover:opacity-80 transition-opacity"
+              >
                 <img src="./footer-mail.svg" alt="mail" />
               </a>
             </li>
             <li className="px-2">
-              <a href="https://t.me/thecyberverse" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+              <a
+                href="https://t.me/thecyberverse"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+              >
                 <img src="./telegram.svg" alt="telegram" />
               </a>
             </li>
