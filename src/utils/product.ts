@@ -15,16 +15,16 @@ export type Product = {
 export const products: Product[] = [
   {
     name: 'Snap',
-    tagline: 'Your photos, reimagined as art in seconds.',
+    tagline: 'Make something beautiful every day ✴︎',
     description: 'Turn any image into stunning styles, from Ghibli to Minecraft and beyond.',
     logo: snapLogo,
     banner: snapBanner
   },
   {
     name: 'Predo',
-    tagline: 'Betting reimagined for conversations.',
+    tagline: 'Prediction markets reimagined for conversations.',
     description:
-      'Create and settle predictions instantly inside your Telegram group. Powered by AI and Solana.',
+      'Create and settle predictions instantly inside your favourite telegram group. Powered by AI and Solana.',
     logo: predoLogo,
     banner: predoBanner
   }

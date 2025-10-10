@@ -20,8 +20,8 @@ export default function Products() {
         </div>
       </div>
       <div>
-        {products.map((product: Product) => (
-          <ProductCard key={product.name} {...product} />
+        {products.map((product: Product, index: number) => (
+          <ProductCard key={product.name} {...product} isFirst={index === 0} />
         ))}
       </div>
     </section>
