@@ -16,7 +16,7 @@ export default function About() {
           </a>
         </div>
         <img
-          src="./about-img.png"
+          src="./about-img.svg"
           alt=""
           className="w-[90%] md:w-[75%] md:mr-15 self-end max-w-md md:max-w-none"
         />
