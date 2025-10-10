@@ -11,7 +11,7 @@ export default function ProductCard({
     <div className={`pb-30 flex flex-col pt-30`}>
       <div className="flex items-center justify-between">
         <div className="flex items-center">
-          <img src={logo} alt="Snap Logo" className="rounded-2xl" />
+          <img src={logo} alt="Snap Logo" className="rounded-4xl" />
           <h3 className="text-7xl font-extrabold px-8">{name}</h3>
         </div>
         <div className="flex items-center justify-between bg-[var(--button-color)] h-25 max-w-[15%]  rounded-[7rem] p-16 text-white">
