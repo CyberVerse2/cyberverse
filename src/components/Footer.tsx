@@ -22,13 +22,19 @@ export default function Footer() {
         <div>
           <ul className="flex items-center w-full">
             <li className="px-2">
-              <img src="./x.svg" alt="x" />
+              <a href="https://x.com/cyberverselabs" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+                <img src="./x.svg" alt="x" />
+              </a>
             </li>
             <li className="px-2">
-              <img src="./footer-mail.svg" alt="mail" />
+              <a href="mailto:ejioforcelestine77@gmail.com" className="hover:opacity-80 transition-opacity">
+                <img src="./footer-mail.svg" alt="mail" />
+              </a>
             </li>
             <li className="px-2">
-              <img src="./telegram.svg" alt="telegram" />
+              <a href="https://t.me/thecyberverse" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
+                <img src="./telegram.svg" alt="telegram" />
+              </a>
             </li>
           </ul>
         </div>

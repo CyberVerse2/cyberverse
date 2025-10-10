@@ -6,7 +6,8 @@ export default function ProductCard({
   description,
   logo,
   banner,
-}: Product & { isFirst?: boolean }) {
+  url,
+}: Product) {
   return (
     <div className={`pb-30 flex flex-col pt-30`}>
       <div className="flex items-center justify-between">
@@ -14,12 +15,15 @@ export default function ProductCard({
           <img src={logo} alt="Snap Logo" className="rounded-4xl" />
           <h3 className="text-7xl font-extrabold px-8">{name}</h3>
         </div>
-        <div className="flex items-center justify-between bg-[var(--button-color)] h-25 max-w-[15%]  rounded-[7rem] p-16 text-white">
-          <a href="" className="   font-medium text-4xl text-center">
-            View Project
-          </a>
+        <a 
+          href={url} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex items-center justify-between bg-[var(--button-color)] h-25 max-w-[15%] rounded-[7rem] p-16 text-white font-medium text-4xl hover:opacity-90 transition-opacity"
+        >
+          <span>View Project</span>
           <img src="arrow.svg" alt="" />
-        </div>
+        </a>
       </div>
       <div className="flex flex-col">
         <div className='py-12'>

@@ -8,9 +8,12 @@ export default function About() {
             At Cyberverse Labs, We experiment, we ship, we break things, and we rebuild them better.
             Our playground is AI, crypto, and apps, but really, it’s the edge of what’s possible.
           </p>
-          <button className="py-10 mt-40 px-24 rounded-[3.7rem] bg-[var(--button-color)] text-3xl font-bold">
+          <a 
+            href="mailto:ejioforcelestine77@gmail.com?subject=Let's Build Together!"
+            className="inline-block py-10 mt-40 px-24 rounded-[3.7rem] bg-[var(--button-color)] text-3xl font-bold hover:opacity-90 transition-opacity"
+          >
             Let's Build!
-          </button>
+          </a>
         </div>
         <img src="./about-img.png" alt="" className="w-[75%] mr-15 self-end" />
       </div>

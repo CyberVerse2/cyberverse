@@ -10,6 +10,7 @@ export type Product = {
   description: string;
   logo: string; // path to logo asset
   banner: string; // path to banner/hero image
+  url: string;
 };
 
 export const products: Product[] = [
@@ -18,7 +19,8 @@ export const products: Product[] = [
     tagline: 'Make something beautiful every day ✴︎',
     description: 'Turn any image into stunning styles, from Ghibli to Minecraft and beyond.',
     logo: snapLogo,
-    banner: snapBanner
+    banner: snapBanner,
+    url: 'https://farcaster.xyz/miniapps/pWHtnHreyj_t/snap'
   },
   {
     name: 'Predo',
@@ -26,6 +28,7 @@ export const products: Product[] = [
     description:
       'Create and settle predictions instantly inside your favourite telegram group. Powered by AI and Solana.',
     logo: predoLogo,
-    banner: predoBanner
+    banner: predoBanner,
+    url:'https://predo.fun'
   }
 ];
