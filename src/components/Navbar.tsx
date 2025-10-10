@@ -4,7 +4,7 @@ export default function Navbar() {
   return (
     <header className="absolute top-0 left-0 right-0 z-50  text-white py-12 flex justify-between items-center px-25">
       <Logo />
-      <ul className="flex justify-between items-center w-[50%]">
+      <ul className="flex justify-between items-center w-[40%]">
         <li className="">
           <p>Home</p>
         </li>
