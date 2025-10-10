@@ -2,10 +2,10 @@ import Logo from './Logo';
 
 export default function Footer() {
   return (
-    <section>
-      <div>
+    <section className="h-[30rem] text-white bg-black -mx-25 px-25 ">
+      <div className='flex justify-between'>
         <Logo />
-        <ul>
+        <ul className='flex justify-between'>
           <li>
             <p>Home</p>
           </li>
@@ -16,19 +16,16 @@ export default function Footer() {
             <p>Things we've built</p>
           </li>
           <li>
-            <div>
-              <img src="./mail.svg" alt="send a mail" />
-              <p>| Send An Email</p>
-            </div>
+            <p>Contact us</p>
           </li>
         </ul>
         <div>
-          <ul>
+          <ul className='flex'>
             <li>
               <img src="./x.svg" alt="x" />
             </li>
             <li>
-              <img src="./mail.svg" alt="mail" />
+              <img src="./footer-mail.svg" alt="mail" />
             </li>
             <li>
               <img src="./telegram.svg" alt="telegram" />
