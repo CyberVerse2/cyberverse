@@ -13,7 +13,7 @@ export default function Footer() {
             <p>About Us</p>
           </li>
           <li>
-            <p>Things we've built</p>
+            <p>Products</p>
           </li>
           <li>
             <p>Contact us</p>
