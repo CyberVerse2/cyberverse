@@ -12,7 +12,7 @@ export default function Navbar() {
           <p>About Us</p>
         </li>
         <li>
-          <p>Things we've built</p>
+          <p>Products</p>
         </li>
         <li>
           <a
