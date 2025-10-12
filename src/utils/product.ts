@@ -11,6 +11,7 @@ export type Product = {
   logo: string; // path to logo asset
   banner: string; // path to banner/hero image
   url: string;
+  twitter: string
 };
 
 export const products: Product[] = [
@@ -20,7 +21,8 @@ export const products: Product[] = [
     description: 'Turn any image into stunning styles, from Ghibli to Minecraft and beyond.',
     logo: snapLogo,
     banner: snapBanner,
-    url: 'https://farcaster.xyz/miniapps/pWHtnHreyj_t/snap'
+    url: 'https://farcaster.xyz/miniapps/pWHtnHreyj_t/snap',
+    twitter: 'https://x.com/usesnap'
   },
   {
     name: 'Predo',
@@ -29,6 +31,7 @@ export const products: Product[] = [
       'Create and settle predictions instantly inside your favourite telegram group. Powered by AI and Solana.',
     logo: predoLogo,
     banner: predoBanner,
-    url:'https://predo.fun'
+    url: 'https://predo.fun',
+    twitter: 'https://x.com/predofun'
   }
 ];

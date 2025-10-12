@@ -1,6 +1,14 @@
 import type { Product } from '../utils/product';
 
-export default function ProductCard({ name, tagline, description, logo, banner, url }: Product) {
+export default function ProductCard({
+  name,
+  tagline,
+  description,
+  logo,
+  banner,
+  url,
+  twitter
+}: Product) {
   return (
     <div className="pb-12 md:pb-30 flex flex-col pt-12 md:pt-30">
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 md:gap-0">
@@ -23,9 +31,16 @@ export default function ProductCard({ name, tagline, description, logo, banner, 
         </a>
       </div>
       <div className="flex flex-col">
-        <div className="py-5 md:py-12">
-          <h4 className="font-medium text-2xl md:text-6xl py-2 md:py-4 leading-tight">{tagline}</h4>
-          <p className="text-[#8C8C8C] text-lg md:text-4xl leading-relaxed">{description}</p>
+        <div className="py-5 md:py-12 flex justify-between">
+          <div>
+            <h4 className="font-medium text-2xl md:text-6xl py-2 md:py-4 leading-tight">
+              {tagline}
+            </h4>
+            <p className="text-[#8C8C8C] text-lg md:text-4xl leading-relaxed">{description}</p>
+          </div>
+          <a href={twitter}>
+            <img src="twitter.svg" alt="" className="w-8 h-8 md:w-auto md:h-auto" />
+          </a>
         </div>
 
         <img
