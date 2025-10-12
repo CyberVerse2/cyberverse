@@ -34,7 +34,7 @@ export default function Hero() {
       <img
         src="/hero-circle-cut.png"
         alt=""
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[min(1600px,140%)] h-[250px] md:h-[450px] object-cover object-top pointer-events-none select-none mix-blend-lighten"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[min(1600px,140%)] h-[25rem] md:h-[45rem] object-cover object-top pointer-events-none select-none mix-blend-lighten"
       />
     </section>
   );
