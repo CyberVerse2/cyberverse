@@ -1,8 +1,11 @@
-import snapLogo from '../assets/snap/logo.svg';
-import snapBanner from '../assets/snap/banner.png';
-
 import predoLogo from '../assets/predo/logo.svg';
 import predoBanner from '../assets/predo/banner.png';
+
+import wafflesLogo from '../assets/waffles/logo.svg';
+import wafflesBanner from '../assets/waffles/banner.png';
+
+import fofLogo from '../assets/fof/logo.jpg';
+import fofBanner from '../assets/fof/banner.jpg';
 
 export type Product = {
   name: string;
@@ -15,16 +18,17 @@ export type Product = {
 };
 
 export const products: Product[] = [
-  {
-    name: 'Snap',
-    tagline: 'Make something beautiful every day ✴︎',
-    description: 'Turn any image into stunning styles, from Ghibli to Minecraft and beyond.',
-    logo: snapLogo,
-    banner: snapBanner,
-    url: 'https://farcaster.xyz/miniapps/pWHtnHreyj_t/snap',
-    twitter: 'https://x.com/usesnap'
+    {
+    name: 'Waffles',
+    tagline: 'Social game for moments',
+    description:
+      'Waffles is a social prediction game where players guess popular moments remixed with AI',
+    logo: wafflesLogo,
+    banner: wafflesBanner,
+    url: 'https://farcaster.xyz/miniapps/sbpPNle-R2-V/waffles',
+    twitter: 'https://x.com/playwaffles'
   },
-  {
+{
     name: 'Predo',
     tagline: 'Prediction markets reimagined for conversations.',
     description:
@@ -33,5 +37,17 @@ export const products: Product[] = [
     banner: predoBanner,
     url: 'https://predo.fun',
     twitter: 'https://x.com/predofun'
+  }
+];
+
+export const experiments: Product[] = [
+  {
+    name: 'FOF: Christmas Edition',
+    tagline: 'Farcaster Friends Experiment',
+    description: 'A social experiment where users mint a group photo of their farcaster friends.',
+    logo: fofLogo,
+    banner: fofBanner,
+    url: 'https://fof.fun',
+    twitter: 'https://x.com/fof'
   }
 ];

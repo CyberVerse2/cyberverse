@@ -1,21 +1,44 @@
 @import 'tailwindcss';
 
 @tailwind utilities;
+
 :root {
   --button-color: #309fe9;
-  --main-color: #000000;
+  --main-color: #ffffff;
   --page-color: #ffffff;
 }
+
 html {
   font-size: 10px;
   font-family: 'Bricolage Grotesque', sans-serif;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
+
 body {
   font-size: 1.6rem; /* For Responsive Layout*/
   overflow-x: hidden;
   width: 100%;
   max-width: 100vw;
+  background-color: var(--main-color);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030F1B;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--button-color);
 }
 
 /* * {

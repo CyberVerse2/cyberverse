@@ -14,6 +14,7 @@
     "@tailwindcss/vite": "^4.1.13",
     "@walletconnect/core": "^2.21.9",
     "@walletconnect/utils": "^2.21.9",
+    "framer-motion": "^12.23.26",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "tailwindcss": "^4.1.13"

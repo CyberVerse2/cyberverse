@@ -1,60 +1,52 @@
+import { motion } from 'framer-motion';
 import Logo from './Logo';
 
 export default function Footer() {
+  const footerLinks = ['Home', 'About Us', 'Products', 'Contact us'];
+  const socialLinks = [
+    { name: 'x', icon: './x.svg', href: 'https://x.com/cyberverselabs' },
+    { name: 'mail', icon: './footer-mail.svg', href: 'mailto:ejioforcelestine77@gmail.com' },
+    { name: 'telegram', icon: './telegram.svg', href: 'https://t.me/thecyberverse' },
+  ];
+
   return (
-    <section className="h-[30rem] text-white bg-black -mx-6 md:-mx-25 px-6 md:px-25 border-t border-white">
-      <div className="flex flex-col md:flex-row justify-between items-center h-1/2 pt-12 md:pt-20 gap-6 md:gap-0">
+    <section className="h-auto md:h-[30rem] text-white bg-black -mx-6 md:-mx-25 px-6 md:px-25 border-t border-white/20 py-12 md:py-0">
+      <div className="flex flex-col md:flex-row justify-between items-center h-full md:h-1/2 pt-0 md:pt-20 gap-8 md:gap-0">
         <Logo />
-        <ul className="flex flex-wrap justify-center md:justify-between gap-4 md:gap-0 md:w-2/5">
-          <li>
-            <p>Home</p>
-          </li>
-          <li>
-            <p>About Us</p>
-          </li>
-          <li>
-            <p>Products</p>
-          </li>
-          <li>
-            <p>Contact us</p>
-          </li>
+        <ul className="flex flex-wrap justify-center md:justify-between gap-6 md:gap-12">
+          {footerLinks.map((link) => (
+            <li key={link}>
+              <a href={`#${link.toLowerCase().replace(' ', '-')}`} className="text-xl hover:text-[var(--button-color)] transition-colors">
+                {link}
+              </a>
+            </li>
+          ))}
         </ul>
         <div>
-          <ul className="flex items-center w-full">
-            <li className="px-2">
-              <a
-                href="https://x.com/cyberverselabs"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-80 transition-opacity"
-              >
-                <img src="./x.svg" alt="x" className="w-6 h-6 md:w-auto md:h-auto" />
-              </a>
-            </li>
-            <li className="px-2">
-              <a
-                href="mailto:ejioforcelestine77@gmail.com"
-                className="hover:opacity-80 transition-opacity"
-              >
-                <img src="./footer-mail.svg" alt="mail" className="w-6 h-6 md:w-auto md:h-auto" />
-              </a>
-            </li>
-            <li className="px-2">
-              <a
-                href="https://t.me/thecyberverse"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-80 transition-opacity"
-              >
-                <img src="./telegram.svg" alt="telegram" className="w-6 h-6 md:w-auto md:h-auto" />
-              </a>
-            </li>
+          <ul className="flex items-center gap-6">
+            {socialLinks.map((social) => (
+              <motion.li key={social.name} whileHover={{ scale: 1.2, rotate: 5 }} whileTap={{ scale: 0.9 }}>
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:opacity-80 transition-opacity"
+                >
+                  <img src={social.icon} alt={social.name} className="w-8 h-8 md:w-auto md:h-auto" />
+                </a>
+              </motion.li>
+            ))}
           </ul>
         </div>
       </div>
-      <p className="text-2xl md:text-4xl text-center pt-16 md:pt-20">
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
+        className="text-xl md:text-2xl text-center pt-12 md:pt-20 text-white/50"
+      >
         © Cyberverse Labs 2025 — Build what's next now.
-      </p>
+      </motion.p>
     </section>
   );
 }
