@@ -43,7 +43,7 @@ export const products: Product[] = [
 export const experiments: Product[] = [
   {
     name: 'FOF: Christmas Edition',
-    tagline: 'Farcaster Friends Experiment',
+    tagline: 'Farcaster Friends Group Photo',
     description: 'A social experiment where users mint a group photo of their farcaster friends.',
     logo: fofLogo,
     banner: fofBanner,
