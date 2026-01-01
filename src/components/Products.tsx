@@ -36,7 +36,7 @@ export default function Products() {
           <p className="text-lg md:text-[2.4rem] text-center w-[95%] md:w-[70%] lg:w-[58%] mx-auto py-6 md:py-10 leading-relaxed">
             {activeTab === 'products'
               ? "Over the years, we've worked on products across AI, crypto, and consumer apps. Here are some of the things we've built along the way."
-              : "We love to experiment with new technologies and ideas. Here are some of our latest experiments and prototypes."}
+              : "We love to experiment with frontier crypto technologies. Here are some of the fun stuff we've been up to."}
           </p>
         </div>
       </div>
