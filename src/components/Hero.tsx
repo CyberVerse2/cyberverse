@@ -55,30 +55,6 @@ export default function Hero() {
         }}
       />
 
-      {/* Label */}
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        style={{
-          fontFamily: 'DM Mono, monospace',
-          fontSize: 'clamp(1rem, 1.5vw, 1.35rem)',
-          letterSpacing: '0.22em',
-          textTransform: 'uppercase',
-          color: '#309fe9',
-          marginBottom: '4rem',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '1.2rem',
-          position: 'relative',
-          zIndex: 1,
-        }}
-      >
-        <span style={{ width: '3rem', height: '1px', background: '#309fe9', display: 'inline-block', opacity: 0.7 }} />
-        Product Studio
-        <span style={{ width: '3rem', height: '1px', background: '#309fe9', display: 'inline-block', opacity: 0.7 }} />
-      </motion.p>
-
       {/* Headline */}
       <div
         style={{
@@ -98,7 +74,7 @@ export default function Hero() {
           style={{
             fontFamily: 'Unbounded, sans-serif',
             fontWeight: 900,
-            fontSize: 'clamp(2.8rem, 9vw, 13.5rem)',
+            fontSize: 'clamp(5rem, 9vw, 13.5rem)',
             letterSpacing: '-0.03em',
             color: '#F0EDE6',
             lineHeight: 0.95,
@@ -114,7 +90,7 @@ export default function Hero() {
           style={{
             fontFamily: 'Unbounded, sans-serif',
             fontWeight: 900,
-            fontSize: 'clamp(2.8rem, 9vw, 13.5rem)',
+            fontSize: 'clamp(5rem, 9vw, 13.5rem)',
             letterSpacing: '-0.03em',
             color: '#309fe9',
             lineHeight: 0.95,
@@ -130,7 +106,7 @@ export default function Hero() {
           style={{
             fontFamily: 'Unbounded, sans-serif',
             fontWeight: 900,
-            fontSize: 'clamp(2.8rem, 9vw, 13.5rem)',
+            fontSize: 'clamp(5rem, 9vw, 13.5rem)',
             letterSpacing: '-0.03em',
             color: '#F0EDE6',
             lineHeight: 0.95,
