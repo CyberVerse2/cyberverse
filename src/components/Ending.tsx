@@ -56,23 +56,6 @@ export default function Ending() {
           maxWidth: '150rem',
         }}
       >
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          style={{
-            fontFamily: 'DM Mono, monospace',
-            fontSize: '1.2rem',
-            letterSpacing: '0.22em',
-            textTransform: 'uppercase',
-            color: '#309fe9',
-            marginBottom: '4rem',
-          }}
-        >
-          // the cyberverse
-        </motion.p>
-
         <motion.h2
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -81,7 +64,7 @@ export default function Ending() {
           style={{
             fontFamily: 'Unbounded, sans-serif',
             fontWeight: 900,
-            fontSize: 'clamp(2.4rem, 6.5vw, 11rem)',
+            fontSize: 'clamp(5rem, 6.5vw, 11rem)',
             letterSpacing: '-0.03em',
             lineHeight: 1.0,
             color: '#F0EDE6',
