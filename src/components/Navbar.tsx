@@ -53,7 +53,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex" style={{ gap: '4rem', alignItems: 'center', display: 'flex' }}>
+        <nav className="hidden lg:flex" style={{ gap: '4rem', alignItems: 'center' }}>
           {navLinks.map((item) => (
             <a
               key={item}
