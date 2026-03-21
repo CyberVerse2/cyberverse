@@ -29,27 +29,8 @@ export default function Navbar() {
       }}
     >
       {/* Logo */}
-      <a
-        href="#"
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '1.2rem',
-          textDecoration: 'none',
-        }}
-      >
-        <img src="/cyberverse.svg" alt="Cyberverse" style={{ height: '2.8rem', width: 'auto' }} />
-        <span
-          style={{
-            fontFamily: 'Unbounded, sans-serif',
-            fontWeight: 900,
-            fontSize: '2.2rem',
-            letterSpacing: '-0.03em',
-            color: '#F0EDE6',
-          }}
-        >
-          CYBERVERSE
-        </span>
+      <a href="#" style={{ textDecoration: 'none' }}>
+        <img src="/cyberverse.svg" alt="Cyberverse" style={{ height: '3.2rem', width: 'auto' }} />
       </a>
 
       {/* Desktop nav */}
