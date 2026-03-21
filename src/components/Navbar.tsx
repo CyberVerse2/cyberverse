@@ -114,7 +114,6 @@ export default function Navbar() {
             background: 'none',
             border: 'none',
             padding: '0.8rem',
-            display: 'flex',
             flexDirection: 'column',
             gap: '0.6rem',
             cursor: 'pointer',
