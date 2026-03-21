@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 export default function Ending() {
   return (
     <section
+      className="px-6 md:px-16"
       style={{
         background: '#060608',
         minHeight: '80vh',
@@ -10,7 +11,8 @@ export default function Ending() {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '12rem 4rem',
+        paddingTop: '12rem',
+        paddingBottom: '12rem',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -79,9 +81,9 @@ export default function Ending() {
           style={{
             fontFamily: 'Unbounded, sans-serif',
             fontWeight: 900,
-            fontSize: 'clamp(3.5rem, 7.5vw, 11rem)',
+            fontSize: 'clamp(2.4rem, 6.5vw, 11rem)',
             letterSpacing: '-0.03em',
-            lineHeight: 0.95,
+            lineHeight: 1.0,
             color: '#F0EDE6',
             marginBottom: '5rem',
           }}
@@ -124,7 +126,7 @@ export default function Ending() {
             fontWeight: 700,
             fontSize: 'clamp(1.3rem, 1.8vw, 1.8rem)',
             letterSpacing: '-0.01em',
-            padding: '2rem 6.5rem',
+            padding: '1.8rem 4rem',
             background: '#309fe9',
             color: '#060608',
             borderRadius: '10rem',

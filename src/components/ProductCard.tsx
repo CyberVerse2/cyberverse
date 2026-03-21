@@ -91,7 +91,7 @@ export default function ProductCard({
         </div>
 
         {/* Actions */}
-        <div style={{ display: 'flex', gap: '1.4rem', alignItems: 'center', flexShrink: 0 }}>
+        <div style={{ display: 'flex', gap: '1.4rem', alignItems: 'center' }}>
           <motion.a
             whileHover={{ scale: 1.12, rotate: -8 }}
             href={twitter}

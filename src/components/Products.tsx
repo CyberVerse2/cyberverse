@@ -9,9 +9,10 @@ export default function Products() {
   return (
     <section
       id="products"
+      className="px-6 md:px-16"
       style={{
         background: '#09090D',
-        padding: '0 4rem 12rem',
+        paddingBottom: '10rem',
         position: 'relative',
       }}
     >

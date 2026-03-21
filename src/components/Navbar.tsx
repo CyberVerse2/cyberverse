@@ -11,13 +11,15 @@ export default function Navbar() {
 
   return (
     <header
+      className="px-6 md:px-16"
       style={{
         position: 'fixed',
         top: 0,
         left: 0,
         right: 0,
         zIndex: 50,
-        padding: '2.2rem 4rem',
+        paddingTop: '2rem',
+        paddingBottom: '2rem',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -30,8 +32,8 @@ export default function Navbar() {
     >
       {/* Logo */}
       <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '1rem', textDecoration: 'none' }}>
-        <img src="/cyberverse.svg" alt="Cyberverse" style={{ height: '3rem', width: 'auto' }} />
-        <span style={{ fontFamily: 'Unbounded, sans-serif', fontWeight: 900, fontSize: '2rem', letterSpacing: '-0.03em', color: '#F0EDE6' }}>
+        <img src="/cyberverse.svg" alt="Cyberverse" style={{ height: '2.8rem', width: 'auto' }} />
+        <span style={{ fontFamily: 'Unbounded, sans-serif', fontWeight: 900, fontSize: '1.8rem', letterSpacing: '-0.03em', color: '#F0EDE6' }}>
           CYBERVERSE
         </span>
       </a>
@@ -100,13 +102,14 @@ export default function Navbar() {
         className="lg:hidden"
         style={{
           fontFamily: 'DM Mono, monospace',
-          fontSize: '1.2rem',
+          fontSize: '1.1rem',
           letterSpacing: '0.04em',
-          padding: '0.9rem 2rem',
+          padding: '0.8rem 1.6rem',
           border: '1px solid rgba(48, 159, 233, 0.5)',
           color: '#309fe9',
           borderRadius: '10rem',
           textDecoration: 'none',
+          whiteSpace: 'nowrap',
         }}
       >
         @cyberverselabs

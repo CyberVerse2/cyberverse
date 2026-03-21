@@ -11,10 +11,12 @@ export default function Footer() {
 
   return (
     <footer
+      className="px-6 md:px-16"
       style={{
         background: '#060608',
         borderTop: '1px solid rgba(255,255,255,0.06)',
-        padding: '6rem 4rem',
+        paddingTop: '6rem',
+        paddingBottom: '6rem',
       }}
     >
       <div

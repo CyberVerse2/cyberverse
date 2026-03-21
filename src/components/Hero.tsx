@@ -8,6 +8,7 @@ export default function Hero() {
 
   return (
     <section
+      className="px-6 md:px-16"
       style={{
         position: 'relative',
         minHeight: '100vh',
@@ -17,7 +18,8 @@ export default function Hero() {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '14rem 4rem 10rem',
+        paddingTop: '14rem',
+        paddingBottom: '10rem',
       }}
     >
       {/* Dot grid background */}
@@ -47,8 +49,7 @@ export default function Hero() {
           width: '90rem',
           height: '80rem',
           borderRadius: '50%',
-          background:
-            'radial-gradient(circle, rgba(48, 159, 233, 0.07) 0%, rgba(48, 159, 233, 0.02) 50%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(48, 159, 233, 0.07) 0%, rgba(48, 159, 233, 0.02) 50%, transparent 70%)',
           filter: 'blur(50px)',
           pointerEvents: 'none',
         }}
@@ -65,42 +66,29 @@ export default function Hero() {
           letterSpacing: '0.22em',
           textTransform: 'uppercase',
           color: '#309fe9',
-          marginBottom: '5rem',
+          marginBottom: '4rem',
           display: 'flex',
           alignItems: 'center',
-          gap: '1.4rem',
+          gap: '1.2rem',
           position: 'relative',
           zIndex: 1,
         }}
       >
-        <span
-          style={{
-            width: '3.5rem',
-            height: '1px',
-            background: '#309fe9',
-            display: 'inline-block',
-            opacity: 0.7,
-          }}
-        />
+        <span style={{ width: '3rem', height: '1px', background: '#309fe9', display: 'inline-block', opacity: 0.7 }} />
         Product Studio
-        <span
-          style={{
-            width: '3.5rem',
-            height: '1px',
-            background: '#309fe9',
-            display: 'inline-block',
-            opacity: 0.7,
-          }}
-        />
+        <span style={{ width: '3rem', height: '1px', background: '#309fe9', display: 'inline-block', opacity: 0.7 }} />
       </motion.p>
 
-      {/* Headline with scramble */}
+      {/* Headline */}
       <div
         style={{
           textAlign: 'center',
           position: 'relative',
           zIndex: 1,
-          lineHeight: 0.92,
+          lineHeight: 1,
+          width: '100%',
+          overflowWrap: 'break-word',
+          wordBreak: 'break-word',
         }}
       >
         <motion.div
@@ -110,9 +98,10 @@ export default function Hero() {
           style={{
             fontFamily: 'Unbounded, sans-serif',
             fontWeight: 900,
-            fontSize: 'clamp(4.5rem, 10.5vw, 13.5rem)',
+            fontSize: 'clamp(2.8rem, 9vw, 13.5rem)',
             letterSpacing: '-0.03em',
             color: '#F0EDE6',
+            lineHeight: 0.95,
           }}
         >
           {line1}
@@ -125,9 +114,10 @@ export default function Hero() {
           style={{
             fontFamily: 'Unbounded, sans-serif',
             fontWeight: 900,
-            fontSize: 'clamp(4.5rem, 10.5vw, 13.5rem)',
+            fontSize: 'clamp(2.8rem, 9vw, 13.5rem)',
             letterSpacing: '-0.03em',
             color: '#309fe9',
+            lineHeight: 0.95,
           }}
         >
           {line2}
@@ -140,9 +130,10 @@ export default function Hero() {
           style={{
             fontFamily: 'Unbounded, sans-serif',
             fontWeight: 900,
-            fontSize: 'clamp(4.5rem, 10.5vw, 13.5rem)',
+            fontSize: 'clamp(2.8rem, 9vw, 13.5rem)',
             letterSpacing: '-0.03em',
             color: '#F0EDE6',
+            lineHeight: 0.95,
           }}
         >
           {line3}
@@ -155,13 +146,14 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.65 }}
         style={{
-          marginTop: '7rem',
+          marginTop: '6rem',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: '4rem',
+          gap: '3rem',
           position: 'relative',
           zIndex: 1,
+          width: '100%',
         }}
       >
         <p
@@ -171,7 +163,7 @@ export default function Hero() {
             color: 'rgba(240, 237, 230, 0.45)',
             textAlign: 'center',
             letterSpacing: '0.01em',
-            maxWidth: '62rem',
+            maxWidth: '60rem',
             lineHeight: 1.75,
           }}
         >
@@ -185,15 +177,16 @@ export default function Hero() {
           style={{
             fontFamily: 'Unbounded, sans-serif',
             fontWeight: 700,
-            fontSize: 'clamp(1.3rem, 1.8vw, 1.7rem)',
+            fontSize: 'clamp(1.2rem, 1.8vw, 1.7rem)',
             letterSpacing: '-0.01em',
-            padding: '1.8rem 5.5rem',
+            padding: '1.6rem 4rem',
             background: '#309fe9',
             color: '#060608',
             borderRadius: '10rem',
             textDecoration: 'none',
             transition: 'opacity 0.2s, transform 0.2s',
             display: 'inline-block',
+            whiteSpace: 'nowrap',
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.opacity = '0.88';
@@ -217,18 +210,9 @@ export default function Hero() {
           bottom: '4rem',
           left: '50%',
           transform: 'translateX(-50%)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
         }}
       >
-        <div
-          style={{
-            width: '1px',
-            height: '5rem',
-            background: 'linear-gradient(to bottom, transparent, rgba(48, 159, 233, 0.5))',
-          }}
-        />
+        <div style={{ width: '1px', height: '5rem', background: 'linear-gradient(to bottom, transparent, rgba(48, 159, 233, 0.5))' }} />
       </motion.div>
     </section>
   );

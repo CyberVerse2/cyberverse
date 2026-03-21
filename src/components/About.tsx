@@ -22,7 +22,7 @@ function StatCard({
         style={{
           fontFamily: 'Unbounded, sans-serif',
           fontWeight: 900,
-          fontSize: 'clamp(4rem, 5vw, 5.5rem)',
+          fontSize: 'clamp(3.5rem, 5vw, 5.5rem)',
           color: '#309fe9',
           lineHeight: 1,
           marginBottom: '0.8rem',
@@ -49,22 +49,16 @@ export default function About() {
   return (
     <section
       id="about"
+      className="px-6 md:px-16"
       style={{
         background: '#060608',
-        padding: '0 4rem 12rem',
+        paddingBottom: '10rem',
         position: 'relative',
         overflow: 'hidden',
       }}
     >
       {/* Top divider */}
-      <div
-        style={{
-          width: '100%',
-          height: '1px',
-          background: 'rgba(255,255,255,0.06)',
-          marginBottom: '10rem',
-        }}
-      />
+      <div style={{ width: '100%', height: '1px', background: 'rgba(255,255,255,0.06)', marginBottom: '8rem' }} />
 
       <div
         style={{
@@ -72,7 +66,7 @@ export default function About() {
           margin: '0 auto',
           display: 'grid',
           gridTemplateColumns: '1fr auto',
-          gap: '8rem',
+          gap: '6rem',
           alignItems: 'center',
         }}
         className="flex flex-col lg:grid"
@@ -91,7 +85,7 @@ export default function About() {
               letterSpacing: '0.2em',
               textTransform: 'uppercase',
               color: '#309fe9',
-              marginBottom: '3.5rem',
+              marginBottom: '3rem',
             }}
           >
             // about us
@@ -101,11 +95,11 @@ export default function About() {
             style={{
               fontFamily: 'Unbounded, sans-serif',
               fontWeight: 900,
-              fontSize: 'clamp(3.2rem, 6vw, 8rem)',
-              lineHeight: 1.0,
+              fontSize: 'clamp(2.8rem, 5.5vw, 8rem)',
+              lineHeight: 1.05,
               letterSpacing: '-0.03em',
               color: '#F0EDE6',
-              marginBottom: '4rem',
+              marginBottom: '3.5rem',
             }}
           >
             WE EXPERIMENT.<br />
@@ -120,7 +114,7 @@ export default function About() {
               color: 'rgba(240, 237, 230, 0.45)',
               lineHeight: 1.8,
               maxWidth: '65rem',
-              marginBottom: '6rem',
+              marginBottom: '5rem',
             }}
           >
             At Cyberverse Labs, we break things and rebuild them better. Our playground is AI,
@@ -143,6 +137,7 @@ export default function About() {
               textDecoration: 'none',
               transition: 'background 0.2s, color 0.2s, border-color 0.2s',
               display: 'inline-block',
+              whiteSpace: 'nowrap',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = '#309fe9';
@@ -168,12 +163,10 @@ export default function About() {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            gap: '0',
-            padding: '4rem',
+            padding: '3.5rem',
             border: '1px solid rgba(255,255,255,0.07)',
             borderRadius: '2rem',
             background: 'rgba(255,255,255,0.02)',
-            minWidth: '28rem',
             width: '100%',
           }}
         >
@@ -186,7 +179,7 @@ export default function About() {
               key={i}
               style={{
                 borderBottom: i < arr.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
-                padding: '3rem 0',
+                padding: '2.5rem 0',
               }}
             >
               <StatCard {...stat} />
