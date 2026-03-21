@@ -91,9 +91,10 @@ export default function ProductCard({
         </div>
 
         {/* Actions */}
-        <div style={{ display: 'flex', gap: '1.4rem', alignItems: 'center' }}>
+        <div style={{ display: 'flex', gap: '1.2rem', alignItems: 'center' }}>
           <motion.a
-            whileHover={{ scale: 1.12, rotate: -8 }}
+            whileHover={{ scale: 1.06 }}
+            whileTap={{ scale: 0.95 }}
             href={twitter}
             target="_blank"
             rel="noopener noreferrer"
@@ -101,21 +102,27 @@ export default function ProductCard({
               width: '4.8rem',
               height: '4.8rem',
               border: '1px solid rgba(255,255,255,0.1)',
+              color: 'rgba(240, 237, 230, 0.55)',
               borderRadius: '50%',
+              textDecoration: 'none',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              transition: 'border-color 0.2s',
               flexShrink: 0,
+              transition: 'border-color 0.2s, color 0.2s',
             }}
-            onMouseEnter={(e) =>
-              ((e.currentTarget as HTMLElement).style.borderColor = 'rgba(48, 159, 233, 0.4)')
-            }
-            onMouseLeave={(e) =>
-              ((e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.1)')
-            }
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLElement).style.borderColor = 'rgba(48, 159, 233, 0.4)';
+              (e.currentTarget as HTMLElement).style.color = '#309fe9';
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.1)';
+              (e.currentTarget as HTMLElement).style.color = 'rgba(240, 237, 230, 0.55)';
+            }}
           >
-            <img src="x.svg" alt="X" style={{ width: '1.8rem', height: '1.8rem' }} />
+            <svg width="15" height="15" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10.97 1H12.93L8.69 5.88L13.68 13H9.8L6.77 9.01L3.3 13H1.33L5.86 7.77L1.07 1H5.05L7.79 4.63L10.97 1ZM10.29 11.85H11.37L4.52 2.1H3.36L10.29 11.85Z" fill="currentColor"/>
+            </svg>
           </motion.a>
 
           <motion.a
@@ -141,7 +148,9 @@ export default function ProductCard({
             }}
           >
             View Project
-            <img src="arrow.svg" alt="" style={{ width: '1.4rem', height: '1.4rem' }} />
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </motion.a>
         </div>
       </div>
