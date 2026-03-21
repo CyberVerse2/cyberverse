@@ -107,14 +107,13 @@ export default function Navbar() {
 
         {/* Hamburger button */}
         <button
-          className="lg:hidden"
+          className="flex flex-col lg:hidden"
           onClick={() => setMenuOpen((o) => !o)}
           aria-label="Toggle menu"
           style={{
             background: 'none',
             border: 'none',
             padding: '0.8rem',
-            flexDirection: 'column',
             gap: '0.6rem',
             cursor: 'pointer',
           }}
