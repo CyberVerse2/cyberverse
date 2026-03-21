@@ -64,7 +64,6 @@ export default function About() {
         style={{
           maxWidth: '140rem',
           margin: '0 auto',
-          display: 'grid',
           gridTemplateColumns: '1fr auto',
           gap: '6rem',
           alignItems: 'center',
