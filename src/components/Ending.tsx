@@ -2,36 +2,138 @@ import { motion } from 'framer-motion';
 
 export default function Ending() {
   return (
-    <section className="min-h-screen bg-black -mx-6 md:-mx-25 px-6 md:px-25 text-white flex items-center justify-center relative overflow-hidden">
-      <motion.div
-        initial={{ opacity: 0, scale: 1.2 }}
-        whileInView={{ opacity: 0.8, scale: 1 }}
-        transition={{ duration: 1.5, ease: 'easeOut' }}
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[180%] md:w-[140%] max-w-[150rem] mt-100 md:mt-40"
-      >
-        <img src="./ending-circle-cut.png" alt="" className="w-full h-auto mix-blend-screen" />
-      </motion.div>
+    <section
+      style={{
+        background: '#060608',
+        minHeight: '80vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '12rem 4rem',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
+      {/* Top divider */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '1px',
+          background: 'rgba(255,255,255,0.06)',
+        }}
+      />
 
-      <div className="relative z-10 text-center max-w-[140rem] mx-auto py-20 md:py-40 mt-170 md:mt-[55rem] px-4 md:px-0">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+      {/* Pulsing lime orb */}
+      <motion.div
+        animate={{ scale: [1, 1.2, 1], opacity: [0.25, 0.45, 0.25] }}
+        transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut' }}
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: '110rem',
+          height: '70rem',
+          borderRadius: '50%',
+          background:
+            'radial-gradient(circle, rgba(48, 159, 233, 0.06) 0%, transparent 70%)',
+          filter: 'blur(70px)',
+          pointerEvents: 'none',
+        }}
+      />
+
+      <div
+        style={{
+          textAlign: 'center',
+          position: 'relative',
+          zIndex: 1,
+          maxWidth: '150rem',
+        }}
+      >
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl md:text-6xl lg:text-[7rem] font-extrabold leading-none mb-4 md:mb-4 px-4 md:px-20"
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          style={{
+            fontFamily: 'DM Mono, monospace',
+            fontSize: '1.2rem',
+            letterSpacing: '0.22em',
+            textTransform: 'uppercase',
+            color: '#309fe9',
+            marginBottom: '4rem',
+          }}
         >
-          The Cyberverse is where creativity, code, & the impossible converge.
-        </motion.h1>
+          // the cyberverse
+        </motion.p>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9, delay: 0.1 }}
+          style={{
+            fontFamily: 'Unbounded, sans-serif',
+            fontWeight: 900,
+            fontSize: 'clamp(3.5rem, 7.5vw, 11rem)',
+            letterSpacing: '-0.03em',
+            lineHeight: 0.95,
+            color: '#F0EDE6',
+            marginBottom: '5rem',
+          }}
+        >
+          WHERE CREATIVITY,<br />
+          CODE & THE<br />
+          <span style={{ color: '#309fe9' }}>IMPOSSIBLE</span><br />
+          CONVERGE.
+        </motion.h2>
+
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-xl md:text-[2.6rem] font-medium px-4"
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          style={{
+            fontFamily: 'DM Mono, monospace',
+            fontSize: 'clamp(1.3rem, 1.9vw, 2rem)',
+            color: 'rgba(240, 237, 230, 0.4)',
+            lineHeight: 1.75,
+            maxWidth: '72rem',
+            margin: '0 auto 6rem',
+          }}
         >
-          Every product is a window into the future, designed to make people say
-          <br className="hidden md:block" />
-          <span className="md:hidden"> </span>
-          "Wait, that's possible?"
+          Every product is a window into the future, designed to make people say "Wait, that's possible?"
         </motion.p>
+
+        <motion.a
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          href="https://x.com/cyberverselabs"
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.04 }}
+          whileTap={{ scale: 0.97 }}
+          style={{
+            fontFamily: 'Unbounded, sans-serif',
+            fontWeight: 700,
+            fontSize: 'clamp(1.3rem, 1.8vw, 1.8rem)',
+            letterSpacing: '-0.01em',
+            padding: '2rem 6.5rem',
+            background: '#309fe9',
+            color: '#060608',
+            borderRadius: '10rem',
+            textDecoration: 'none',
+            display: 'inline-block',
+          }}
+        >
+          FOLLOW ON X →
+        </motion.a>
       </div>
     </section>
   );

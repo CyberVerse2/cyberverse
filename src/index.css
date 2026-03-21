@@ -3,44 +3,90 @@
 @tailwind utilities;
 
 :root {
+  --bg: #060608;
+  --bg-surface: #0D0D12;
+  --bg-card: #111117;
+  --text: #F0EDE6;
+  --text-muted: #52525C;
+  --accent: #309fe9;
+  --accent-dim: rgba(48, 159, 233, 0.1);
+  --border: rgba(255, 255, 255, 0.07);
+  --border-accent: rgba(48, 159, 233, 0.4);
+
+  /* Legacy compat */
   --button-color: #309fe9;
-  --main-color: #ffffff;
-  --page-color: #ffffff;
+  --main-color: var(--bg);
+  --page-color: var(--bg);
 }
 
 html {
   font-size: 10px;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  font-family: 'DM Mono', monospace;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
 body {
-  font-size: 1.6rem; /* For Responsive Layout*/
+  font-size: 1.6rem;
   overflow-x: hidden;
   width: 100%;
   max-width: 100vw;
-  background-color: var(--main-color);
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Hide default cursor on pointer devices */
+@media (hover: hover) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}
+
+/* Grain texture overlay — drifts to simulate film grain */
+body::before {
+  content: '';
+  position: fixed;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  opacity: 0.07;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+  animation: grain-drift 0.4s steps(1) infinite;
+}
+
+@keyframes grain-drift {
+  0%   { transform: translate(0%,  0%);  }
+  20%  { transform: translate(-3%, -2%); }
+  40%  { transform: translate(2%,  -3%); }
+  60%  { transform: translate(-2%, 2%);  }
+  80%  { transform: translate(3%,  1%);  }
+  100% { transform: translate(0%,  0%);  }
+}
+
+/* Marquee animation */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #030F1B;
+  background: var(--bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #2A2A32;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--button-color);
+  background: var(--accent);
 }
-
-/* * {
-  outline: 1px solid red !important;
-} */

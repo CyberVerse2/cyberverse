@@ -1,25 +1,198 @@
+import { motion } from 'framer-motion';
+import { useCountUp } from '../hooks/useCountUp';
+
+function StatCard({
+  target,
+  suffix,
+  label,
+  isInfinity,
+  delay,
+}: {
+  target: number;
+  suffix: string;
+  label: string;
+  isInfinity?: boolean;
+  delay: number;
+}) {
+  const { count, ref } = useCountUp(target, 1400, delay);
+
+  return (
+    <div ref={ref as React.RefObject<HTMLDivElement>}>
+      <p
+        style={{
+          fontFamily: 'Unbounded, sans-serif',
+          fontWeight: 900,
+          fontSize: 'clamp(4rem, 5vw, 5.5rem)',
+          color: '#309fe9',
+          lineHeight: 1,
+          marginBottom: '0.8rem',
+        }}
+      >
+        {isInfinity ? '∞' : `${count}${suffix}`}
+      </p>
+      <p
+        style={{
+          fontFamily: 'DM Mono, monospace',
+          fontSize: '1.2rem',
+          color: 'rgba(240, 237, 230, 0.35)',
+          letterSpacing: '0.1em',
+          textTransform: 'uppercase',
+        }}
+      >
+        {label}
+      </p>
+    </div>
+  );
+}
+
 export default function About() {
   return (
-    <section className="min-h-screen w-full flex justify-center items-center px-4 md:px-0">
-      <div className="text-white rounded-[2rem] md:rounded-[4.4rem] bg-gradient-to-br from-[#1E1E1E] to-[#03080F] min-h-[calc(100vh-20rem)] flex flex-col md:flex-row justify-between items-center p-6 md:p-20 gap-8 md:gap-y-10">
-        <div className="md:ml-30 w-full md:w-[90%]">
-          <h2 className="text-5xl md:text-9xl font-extrabold pb-3">About Us</h2>
-          <p className="text-xl md:text-[2.8rem] w-full md:w-3/4 pt-5 font-normal">
-            At Cyberverse Labs, We experiment, we ship, we break things, and we rebuild them better.
-            Our playground is AI, crypto, and apps, but really, it's the edge of what's possible.
-          </p>
-          <a
-            href="mailto:ejioforcelestine77@gmail.com?subject=Let's Build Together!"
-            className="inline-block py-6 md:py-10 mt-12 md:mt-40 px-16 md:px-24 rounded-[3.7rem] bg-[var(--button-color)] text-2xl md:text-3xl font-bold hover:opacity-90 transition-opacity"
+    <section
+      id="about"
+      style={{
+        background: '#060608',
+        padding: '0 4rem 12rem',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
+    >
+      {/* Top divider */}
+      <div
+        style={{
+          width: '100%',
+          height: '1px',
+          background: 'rgba(255,255,255,0.06)',
+          marginBottom: '10rem',
+        }}
+      />
+
+      <div
+        style={{
+          maxWidth: '140rem',
+          margin: '0 auto',
+          display: 'grid',
+          gridTemplateColumns: '1fr auto',
+          gap: '8rem',
+          alignItems: 'center',
+        }}
+        className="flex flex-col lg:grid"
+      >
+        {/* Left: content */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <p
+            style={{
+              fontFamily: 'DM Mono, monospace',
+              fontSize: '1.2rem',
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              color: '#309fe9',
+              marginBottom: '3.5rem',
+            }}
           >
-            Let's Build!
+            // about us
+          </p>
+
+          <h2
+            style={{
+              fontFamily: 'Unbounded, sans-serif',
+              fontWeight: 900,
+              fontSize: 'clamp(3.2rem, 6vw, 8rem)',
+              lineHeight: 1.0,
+              letterSpacing: '-0.03em',
+              color: '#F0EDE6',
+              marginBottom: '4rem',
+            }}
+          >
+            WE EXPERIMENT.<br />
+            WE SHIP.<br />
+            <span style={{ color: '#309fe9' }}>WE BUILD BETTER.</span>
+          </h2>
+
+          <p
+            style={{
+              fontFamily: 'DM Mono, monospace',
+              fontSize: 'clamp(1.3rem, 1.8vw, 1.8rem)',
+              color: 'rgba(240, 237, 230, 0.45)',
+              lineHeight: 1.8,
+              maxWidth: '65rem',
+              marginBottom: '6rem',
+            }}
+          >
+            At Cyberverse Labs, we break things and rebuild them better. Our playground is AI,
+            crypto, and apps — but really, it's the edge of what's possible.
+          </p>
+
+          <a
+            href="https://x.com/cyberverselabs"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontFamily: 'Unbounded, sans-serif',
+              fontWeight: 700,
+              fontSize: 'clamp(1.2rem, 1.6vw, 1.5rem)',
+              letterSpacing: '-0.01em',
+              padding: '1.6rem 4rem',
+              border: '1px solid rgba(48, 159, 233, 0.5)',
+              color: '#309fe9',
+              borderRadius: '10rem',
+              textDecoration: 'none',
+              transition: 'background 0.2s, color 0.2s, border-color 0.2s',
+              display: 'inline-block',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = '#309fe9';
+              e.currentTarget.style.color = '#060608';
+              e.currentTarget.style.borderColor = '#309fe9';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = 'transparent';
+              e.currentTarget.style.color = '#309fe9';
+              e.currentTarget.style.borderColor = 'rgba(48, 159, 233, 0.5)';
+            }}
+          >
+            FOLLOW ON X →
           </a>
-        </div>
-        <img
-          src="./about-img.svg"
-          alt=""
-          className="w-[90%] md:w-[75%] md:mr-15 self-end max-w-md md:max-w-none"
-        />
+        </motion.div>
+
+        {/* Right: stat card */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0',
+            padding: '4rem',
+            border: '1px solid rgba(255,255,255,0.07)',
+            borderRadius: '2rem',
+            background: 'rgba(255,255,255,0.02)',
+            minWidth: '28rem',
+            width: '100%',
+          }}
+        >
+          {[
+            { target: 3, suffix: '+', label: 'Products Shipped', delay: 0 },
+            { target: 2, suffix: '+', label: 'Experiments', delay: 150 },
+            { target: 0, suffix: '', label: 'Possibilities', isInfinity: true, delay: 300 },
+          ].map((stat, i, arr) => (
+            <div
+              key={i}
+              style={{
+                borderBottom: i < arr.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
+                padding: '3rem 0',
+              }}
+            >
+              <StatCard {...stat} />
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

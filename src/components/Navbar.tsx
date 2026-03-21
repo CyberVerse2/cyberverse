@@ -1,36 +1,131 @@
-import Logo from './Logo';
+import { useEffect, useState } from 'react';
 
 export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
-    <header className="absolute top-0 left-0 right-0 z-50 text-white py-6 md:py-12 flex justify-between items-center px-6 md:px-25">
-      <Logo />
-      <ul className="hidden lg:flex justify-between items-center w-[40%]">
-        <li className="">
-          <p>Home</p>
-        </li>
-        <li>
-          <p>About Us</p>
-        </li>
-        <li>
-          <p>Products</p>
-        </li>
-        <li>
-          <a
-            href="mailto:ejioforcelestine77@gmail.com"
-            className="flex justify-center items-center bg-[#1b1f25] gap-2 p-6 w-74 rounded-[3.7rem] hover:opacity-90 transition-opacity"
-          >
-            <img src="./mail.svg" alt="send a mail" className="pr-2" />
-            <p className="border border-l-white border-[#1b1f25] pl-4">Send An Email</p>
-          </a>
-        </li>
-      </ul>
-      {/* Mobile contact button */}
+    <header
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50,
+        padding: '2.2rem 4rem',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        transition: 'background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease',
+        background: scrolled ? 'rgba(6, 6, 8, 0.88)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(16px)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
+        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : '1px solid transparent',
+      }}
+    >
+      {/* Logo */}
       <a
-        href="mailto:ejioforcelestine77@gmail.com"
-        className="lg:hidden flex items-center bg-[#1b1f25] gap-2 p-4 px-6 rounded-[3.7rem] hover:opacity-90 transition-opacity"
+        href="#"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '1.2rem',
+          textDecoration: 'none',
+        }}
       >
-        <img src="./mail.svg" alt="send a mail" className="w-5 h-5" />
-        <p className="text-lg whitespace-nowrap">Contact</p>
+        <img src="/cyberverse.svg" alt="Cyberverse" style={{ height: '2.8rem', width: 'auto' }} />
+        <span
+          style={{
+            fontFamily: 'Unbounded, sans-serif',
+            fontWeight: 900,
+            fontSize: '2.2rem',
+            letterSpacing: '-0.03em',
+            color: '#F0EDE6',
+          }}
+        >
+          CYBERVERSE
+        </span>
+      </a>
+
+      {/* Desktop nav */}
+      <nav
+        style={{ display: 'flex', gap: '4rem', alignItems: 'center' }}
+        className="hidden lg:flex"
+      >
+        {['Home', 'About', 'Products'].map((item) => (
+          <a
+            key={item}
+            href={`#${item.toLowerCase()}`}
+            style={{
+              fontFamily: 'DM Mono, monospace',
+              fontSize: '1.25rem',
+              color: 'rgba(240, 237, 230, 0.5)',
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase' as const,
+              textDecoration: 'none',
+              transition: 'color 0.2s',
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = '#F0EDE6')}
+            onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(240, 237, 230, 0.5)')}
+          >
+            {item}
+          </a>
+        ))}
+
+        <a
+          href="https://x.com/cyberverselabs"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            fontFamily: 'DM Mono, monospace',
+            fontSize: '1.25rem',
+            letterSpacing: '0.06em',
+            textTransform: 'uppercase' as const,
+            padding: '1rem 2.6rem',
+            border: '1px solid rgba(48, 159, 233, 0.5)',
+            color: '#309fe9',
+            borderRadius: '10rem',
+            textDecoration: 'none',
+            transition: 'background 0.2s, color 0.2s, border-color 0.2s',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = '#309fe9';
+            e.currentTarget.style.color = '#060608';
+            e.currentTarget.style.borderColor = '#309fe9';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = 'transparent';
+            e.currentTarget.style.color = '#309fe9';
+            e.currentTarget.style.borderColor = 'rgba(48, 159, 233, 0.5)';
+          }}
+        >
+          @cyberverselabs →
+        </a>
+      </nav>
+
+      {/* Mobile CTA */}
+      <a
+        href="https://x.com/cyberverselabs"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="lg:hidden"
+        style={{
+          fontFamily: 'DM Mono, monospace',
+          fontSize: '1.2rem',
+          letterSpacing: '0.04em',
+          padding: '0.9rem 2rem',
+          border: '1px solid rgba(48, 159, 233, 0.5)',
+          color: '#309fe9',
+          borderRadius: '10rem',
+          textDecoration: 'none',
+        }}
+      >
+        @cyberverselabs
       </a>
     </header>
   );

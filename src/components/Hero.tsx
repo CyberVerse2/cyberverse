@@ -1,41 +1,235 @@
+import { motion } from 'framer-motion';
+import { useScrambleText } from '../hooks/useScrambleText';
+
 export default function Hero() {
+  const line1 = useScrambleText('BUILDING', 0);
+  const line2 = useScrambleText('AT THE EDGE', 300);
+  const line3 = useScrambleText("OF WHAT'S POSSIBLE.", 600);
+
   return (
-    <section className="relative min-h-screen bg-[#030F1B] text-white overflow-hidden -mx-6 md:-mx-25">
-      {/* Radial gradient positioned to create dark navbar area at top */}
+    <section
+      style={{
+        position: 'relative',
+        minHeight: '100vh',
+        background: '#060608',
+        overflow: 'hidden',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '14rem 4rem 10rem',
+      }}
+    >
+      {/* Dot grid background */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0
-      bg-[radial-gradient(ellipse_130%_90%_at_50%_25%,#07629E_0%,rgba(7,98,158,0.5)_35%,rgba(7,98,158,0.2)_60%,transparent_85%)]"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.055) 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
+          maskImage: 'radial-gradient(ellipse 85% 85% at 50% 50%, black 30%, transparent 100%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 85% 85% at 50% 50%, black 30%, transparent 100%)',
+          pointerEvents: 'none',
+        }}
       />
 
-      {/* === Your content === */}
-      <div className="relative z-10 flex min-h-screen flex-col items-center justify-center text-center px-6 md:px-0">
-        <h1 className="font-extrabold leading-[0.95] text-[clamp(3.2rem,8vw,10rem)] py-10 max-w-[95vw]">
-          <span className="block">Building at the Edge</span>
-          <span className="block">of possibilities.</span>
-        </h1>
+      {/* Pulsing blue orb */}
+      <motion.div
+        animate={{ scale: [1, 1.12, 1], opacity: [0.35, 0.55, 0.35] }}
+        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+        aria-hidden
+        style={{
+          position: 'absolute',
+          top: '30%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: '90rem',
+          height: '80rem',
+          borderRadius: '50%',
+          background:
+            'radial-gradient(circle, rgba(48, 159, 233, 0.07) 0%, rgba(48, 159, 233, 0.02) 50%, transparent 70%)',
+          filter: 'blur(50px)',
+          pointerEvents: 'none',
+        }}
+      />
 
-        <div className="text-xl md:text-3xl px-4">
-          <p>Cyberverse is a product studio creating apps that</p>
-          <p className="pt-3 pb-12 md:pb-20">
-            push the limits of AI, crypto, and the internet itself.
-          </p>
-        </div>
+      {/* Label */}
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        style={{
+          fontFamily: 'DM Mono, monospace',
+          fontSize: 'clamp(1rem, 1.5vw, 1.35rem)',
+          letterSpacing: '0.22em',
+          textTransform: 'uppercase',
+          color: '#309fe9',
+          marginBottom: '5rem',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '1.4rem',
+          position: 'relative',
+          zIndex: 1,
+        }}
+      >
+        <span
+          style={{
+            width: '3.5rem',
+            height: '1px',
+            background: '#309fe9',
+            display: 'inline-block',
+            opacity: 0.7,
+          }}
+        />
+        Product Studio
+        <span
+          style={{
+            width: '3.5rem',
+            height: '1px',
+            background: '#309fe9',
+            display: 'inline-block',
+            opacity: 0.7,
+          }}
+        />
+      </motion.p>
 
-        <a
-          href="mailto:ejioforcelestine77@gmail.com?subject=Let's Build Together!"
-          className="py-6 md:py-8 px-16 md:px-32 rounded-[3.7rem] bg-[var(--button-color)] text-2xl md:text-3xl font-bold hover:opacity-90 transition-opacity"
+      {/* Headline with scramble */}
+      <div
+        style={{
+          textAlign: 'center',
+          position: 'relative',
+          zIndex: 1,
+          lineHeight: 0.92,
+        }}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          style={{
+            fontFamily: 'Unbounded, sans-serif',
+            fontWeight: 900,
+            fontSize: 'clamp(4.5rem, 10.5vw, 13.5rem)',
+            letterSpacing: '-0.03em',
+            color: '#F0EDE6',
+          }}
         >
-          Let's Build!
-        </a>
+          {line1}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.25 }}
+          style={{
+            fontFamily: 'Unbounded, sans-serif',
+            fontWeight: 900,
+            fontSize: 'clamp(4.5rem, 10.5vw, 13.5rem)',
+            letterSpacing: '-0.03em',
+            color: '#309fe9',
+          }}
+        >
+          {line2}
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          style={{
+            fontFamily: 'Unbounded, sans-serif',
+            fontWeight: 900,
+            fontSize: 'clamp(4.5rem, 10.5vw, 13.5rem)',
+            letterSpacing: '-0.03em',
+            color: '#F0EDE6',
+          }}
+        >
+          {line3}
+        </motion.div>
       </div>
 
-      {/* Your bottom image - positioned absolutely */}
-      <img
-        src="/hero-circle-cut.png"
-        alt=""
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[min(1600px,140%)] h-[25rem] md:h-[45rem] object-cover object-top pointer-events-none select-none mix-blend-lighten"
-      />
+      {/* Subtext + CTA */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.65 }}
+        style={{
+          marginTop: '7rem',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '4rem',
+          position: 'relative',
+          zIndex: 1,
+        }}
+      >
+        <p
+          style={{
+            fontFamily: 'DM Mono, monospace',
+            fontSize: 'clamp(1.3rem, 2vw, 1.8rem)',
+            color: 'rgba(240, 237, 230, 0.45)',
+            textAlign: 'center',
+            letterSpacing: '0.01em',
+            maxWidth: '62rem',
+            lineHeight: 1.75,
+          }}
+        >
+          A product studio creating apps that push the limits of AI, crypto, and the internet itself.
+        </p>
+
+        <a
+          href="https://x.com/cyberverselabs"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            fontFamily: 'Unbounded, sans-serif',
+            fontWeight: 700,
+            fontSize: 'clamp(1.3rem, 1.8vw, 1.7rem)',
+            letterSpacing: '-0.01em',
+            padding: '1.8rem 5.5rem',
+            background: '#309fe9',
+            color: '#060608',
+            borderRadius: '10rem',
+            textDecoration: 'none',
+            transition: 'opacity 0.2s, transform 0.2s',
+            display: 'inline-block',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.opacity = '0.88';
+            e.currentTarget.style.transform = 'scale(1.03)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.opacity = '1';
+            e.currentTarget.style.transform = 'scale(1)';
+          }}
+        >
+          FOLLOW ON X →
+        </a>
+      </motion.div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+        style={{
+          position: 'absolute',
+          bottom: '4rem',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <div
+          style={{
+            width: '1px',
+            height: '5rem',
+            background: 'linear-gradient(to bottom, transparent, rgba(48, 159, 233, 0.5))',
+          }}
+        />
+      </motion.div>
     </section>
   );
 }

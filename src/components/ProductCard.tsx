@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import type { Product } from '../utils/product';
 
 export default function ProductCard({
@@ -8,63 +8,182 @@ export default function ProductCard({
   logo,
   banner,
   url,
-  twitter
+  twitter,
 }: Product) {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const rotateX = useSpring(useTransform(mouseY, [-1, 1], [4, -4]), { stiffness: 400, damping: 30 });
+  const rotateY = useSpring(useTransform(mouseX, [-1, 1], [-4, 4]), { stiffness: 400, damping: 30 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    mouseX.set((e.clientX - rect.left) / rect.width * 2 - 1);
+    mouseY.set((e.clientY - rect.top) / rect.height * 2 - 1);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-100px' }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="pb-12 md:pb-30 flex flex-col pt-12 md:pt-30"
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+      style={{
+        borderTop: '1px solid rgba(255,255,255,0.06)',
+        padding: '6rem 0',
+      }}
     >
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 md:gap-0">
-        <div className="flex items-center gap-3 md:gap-0 w-full md:w-auto">
+      {/* Card header */}
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'flex-start',
+          justifyContent: 'space-between',
+          marginBottom: '3rem',
+          flexWrap: 'wrap',
+          gap: '2rem',
+        }}
+      >
+        {/* Logo + name + tagline */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '2.5rem' }}>
           <motion.img
-            whileHover={{ scale: 1.1, rotate: 5 }}
+            whileHover={{ scale: 1.08, rotate: 5 }}
             src={logo}
-            alt={`${name} Logo`}
-            className="rounded-xl md:rounded-4xl w-12 h-12 md:w-24 md:h-24 lg:w-32 lg:h-32 object-contain flex-shrink-0"
+            alt={`${name} logo`}
+            style={{
+              width: '6.5rem',
+              height: '6.5rem',
+              borderRadius: '1.4rem',
+              objectFit: 'contain',
+              border: '1px solid rgba(255,255,255,0.08)',
+              flexShrink: 0,
+            }}
           />
-          <h3 className="text-3xl md:text-7xl font-extrabold md:px-8">{name}</h3>
-        </div>
-        <motion.a
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 bg-[var(--button-color)] h-14 md:h-25 w-full md:w-auto md:max-w-[15%] md:min-w-[200px] rounded-[7rem] px-5 md:p-16 text-white font-medium text-xl md:text-4xl hover:opacity-90 transition-opacity whitespace-nowrap"
-        >
-          <span>View Project</span>
-          <img src="arrow.svg" alt="" className="w-4 h-4 md:w-auto md:h-auto" />
-        </motion.a>
-      </div>
-      <div className="flex flex-col">
-        <div className="py-5 md:py-12 flex justify-between">
           <div>
-            <h4 className="font-medium text-2xl md:text-6xl py-2 md:py-4 leading-tight">
+            <h3
+              style={{
+                fontFamily: 'Unbounded, sans-serif',
+                fontWeight: 900,
+                fontSize: 'clamp(2.5rem, 5vw, 6.5rem)',
+                letterSpacing: '-0.03em',
+                color: '#F0EDE6',
+                lineHeight: 1,
+              }}
+            >
+              {name}
+            </h3>
+            <p
+              style={{
+                fontFamily: 'DM Mono, monospace',
+                fontSize: 'clamp(1.2rem, 1.4vw, 1.55rem)',
+                color: 'rgba(240, 237, 230, 0.38)',
+                marginTop: '0.6rem',
+                letterSpacing: '0.01em',
+              }}
+            >
               {tagline}
-            </h4>
-            <p className="text-[#8C8C8C] text-lg md:text-4xl leading-relaxed">{description}</p>
+            </p>
           </div>
-          <motion.a
-            whileHover={{ scale: 1.2, rotate: -10 }}
-            href={twitter}
-          >
-            <img src="twitter.svg" alt="" className="w-8 h-8 md:w-auto md:h-auto" />
-          </motion.a>
         </div>
 
+        {/* Actions */}
+        <div style={{ display: 'flex', gap: '1.4rem', alignItems: 'center', flexShrink: 0 }}>
+          <motion.a
+            whileHover={{ scale: 1.12, rotate: -8 }}
+            href={twitter}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              width: '4.8rem',
+              height: '4.8rem',
+              border: '1px solid rgba(255,255,255,0.1)',
+              borderRadius: '50%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              transition: 'border-color 0.2s',
+              flexShrink: 0,
+            }}
+            onMouseEnter={(e) =>
+              ((e.currentTarget as HTMLElement).style.borderColor = 'rgba(48, 159, 233, 0.4)')
+            }
+            onMouseLeave={(e) =>
+              ((e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.1)')
+            }
+          >
+            <img src="x.svg" alt="X" style={{ width: '1.8rem', height: '1.8rem' }} />
+          </motion.a>
+
+          <motion.a
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontFamily: 'Unbounded, sans-serif',
+              fontWeight: 700,
+              fontSize: 'clamp(1.1rem, 1.4vw, 1.5rem)',
+              letterSpacing: '-0.01em',
+              padding: '1.4rem 3.2rem',
+              background: '#309fe9',
+              color: '#060608',
+              borderRadius: '10rem',
+              textDecoration: 'none',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.8rem',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            View Project
+            <img src="arrow.svg" alt="" style={{ width: '1.4rem', height: '1.4rem' }} />
+          </motion.a>
+        </div>
+      </div>
+
+      {/* Description */}
+      <p
+        style={{
+          fontFamily: 'DM Mono, monospace',
+          fontSize: 'clamp(1.3rem, 1.7vw, 1.8rem)',
+          color: 'rgba(240, 237, 230, 0.38)',
+          lineHeight: 1.75,
+          maxWidth: '80rem',
+          marginBottom: '4.5rem',
+        }}
+      >
+        {description}
+      </p>
+
+      {/* Banner with 3D tilt */}
+      <div style={{ perspective: '1200px' }}>
         <motion.div
-          whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.4 }}
-          className="overflow-hidden rounded-2xl md:rounded-[3rem] mt-3 md:mt-10"
+          style={{
+            rotateX,
+            rotateY,
+            overflow: 'hidden',
+            borderRadius: '2rem',
+            border: '1px solid rgba(255,255,255,0.06)',
+            transformStyle: 'preserve-3d',
+          }}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
         >
           <img
             src={banner}
-            alt={`${name}-banner`}
-            className="w-full transition-transform duration-700 hover:scale-105"
+            alt={`${name} banner`}
+            style={{
+              width: '100%',
+              display: 'block',
+              transition: 'transform 0.6s ease',
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.04)')}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
           />
         </motion.div>
       </div>
