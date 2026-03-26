@@ -4,13 +4,13 @@
 
 :root {
   --bg: #F8F6F1;
-  --text: #1a1a1a;
-  --text-secondary: #6b6b6b;
-  --text-muted: #a0a0a0;
-  --accent: #309fe9;
-  --link: #1a1a1a;
-  --link-hover: var(--accent);
-  --border: rgba(0, 0, 0, 0.08);
+  --text: #041A3B;
+  --text-secondary: rgba(4, 26, 59, 0.6);
+  --text-muted: rgba(4, 26, 59, 0.4);
+  --accent: #2CB4F4;
+  --link: #041A3B;
+  --link-hover: #654FF1;
+  --border: rgba(4, 26, 59, 0.08);
   --serif: 'Bricolage Grotesque', system-ui, sans-serif;
   --sans: 'Bricolage Grotesque', system-ui, sans-serif;
 }
@@ -32,7 +32,7 @@ body {
 }
 
 ::selection {
-  background: rgba(48, 159, 233, 0.15);
+  background: rgba(101, 79, 241, 0.15);
   color: var(--text);
 }
 

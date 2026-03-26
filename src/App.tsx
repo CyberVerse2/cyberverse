@@ -5,8 +5,32 @@ import predoLogo from './assets/predo/logo.svg';
 import predoBanner from './assets/predo/banner.png';
 import fofLogo from './assets/fof/logo.jpg';
 import fofBanner from './assets/fof/banner.jpg';
+import proxiLogo from './assets/proxi/logo.png';
+import proxiBanner from './assets/proxi/banner.png';
+import imitationgameLogo from './assets/imitationgame/logo.png';
+import imitationgameBanner from './assets/imitationgame/banner.png';
 
 const projects = [
+  {
+    name: 'Proxi',
+    description: 'clone yourself as an ai agent that talks to people on your behalf.',
+    url: 'proxi.fun',
+    twitter: 'https://x.com/proxiagent',
+    year: '2026',
+    logo: proxiLogo,
+    banner: proxiBanner,
+    roundLogo: true,
+  },
+  {
+    name: 'Imitation Game',
+    description: 'a social deduction game where you figure out who\'s human and who\'s AI.',
+    url: 'https://imitationgame.fun',
+    twitter: 'https://x.com/imitationgame',
+    year: '2026',
+    logo: imitationgameLogo,
+    banner: imitationgameBanner,
+    roundLogo: true,
+  },
   {
     name: 'Waffles',
     description: 'guess movie scenes in 10 seconds and win usdc.',
@@ -17,22 +41,22 @@ const projects = [
     banner: wafflesBanner,
   },
   {
-    name: 'Predo',
-    description: 'prediction market agent for telegram groups',
-    url: 'https://predo.fun',
-    twitter: 'https://x.com/predofun',
-    year: '2025',
-    logo: predoLogo,
-    banner: predoBanner,
-  },
-  {
     name: 'Friends on Farcaster',
-    description: 'A social experiment where users mint a group photo of their Farcaster friends on Christmas Day.',
+    description: 'A social experiment where users mint a group photo of their friends on Christmas Day.',
     url: 'https://fof.fun',
     twitter: 'https://x.com/fof',
-    year: '2024',
+    year: '2025',
     logo: fofLogo,
     banner: fofBanner,
+  },
+  {
+    name: 'Predo',
+    description: 'prediction market agent for cabal groups.',
+    url: 'https://predo.fun',
+    twitter: 'https://x.com/predofun',
+    year: '2024',
+    logo: predoLogo,
+    banner: predoBanner,
   },
 ];
 
@@ -111,7 +135,7 @@ function App() {
             letterSpacing: '0.1em',
             textTransform: 'uppercase',
             color: 'var(--text-muted)',
-            marginBottom: '4rem',
+            marginBottom: '2rem',
           }}
         >
           Projects
@@ -132,11 +156,26 @@ function App() {
             >
               <div style={{ flex: 1, minWidth: '20rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-                  <img
-                    src={project.logo}
-                    alt={`${project.name} logo`}
-                    style={{ width: '2.4rem', height: '2.4rem', borderRadius: '0.4rem', objectFit: 'cover' }}
-                  />
+                  <div
+                    style={{
+                      width: '2.4rem',
+                      height: '2.4rem',
+                      borderRadius: '0.4rem',
+                      overflow: 'hidden',
+                      flexShrink: 0,
+                    }}
+                  >
+                    <img
+                      src={project.logo}
+                      alt={`${project.name} logo`}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        transform: project.roundLogo ? 'scale(1.3)' : 'none',
+                      }}
+                    />
+                  </div>
                   <a
                     href={project.url}
                     target="_blank"
@@ -197,13 +236,13 @@ function App() {
             color: 'var(--text-secondary)',
           }}
         >
-          Find us on{' '}
+          Find me on{' '}
           <a
-            href="https://x.com/cyberverselabs"
+            href="https://x.com/thecyberverse"
             target="_blank"
             rel="noopener noreferrer"
           >
-            @cyberverselabs
+            @thecyberverse
           </a>{' '}
           or reach out at{' '}
           <a href="mailto:ejioforcelestine77@gmail.com">
