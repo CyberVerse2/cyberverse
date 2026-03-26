@@ -1,7 +1,5 @@
 @import 'tailwindcss';
 
-@tailwind utilities;
-
 :root {
   --bg: #F8F6F1;
   --text: #041A3B;
@@ -11,8 +9,7 @@
   --link: #041A3B;
   --link-hover: #654FF1;
   --border: rgba(4, 26, 59, 0.08);
-  --serif: 'Bricolage Grotesque', system-ui, sans-serif;
-  --sans: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font: 'Bricolage Grotesque', system-ui, sans-serif;
 }
 
 html {
@@ -21,7 +18,7 @@ html {
 }
 
 body {
-  font-family: var(--sans);
+  font-family: var(--font);
   font-size: 1.7rem;
   font-weight: 300;
   line-height: 1.75;
@@ -83,15 +80,6 @@ a:hover {
   animation: fadeUp 0.7s ease forwards;
 }
 
-.fade-in-1 { animation-delay: 0s; }
-.fade-in-2 { animation-delay: 0.1s; }
-.fade-in-3 { animation-delay: 0.2s; }
-.fade-in-4 { animation-delay: 0.3s; }
-.fade-in-5 { animation-delay: 0.4s; }
-.fade-in-6 { animation-delay: 0.5s; }
-.fade-in-7 { animation-delay: 0.6s; }
-.fade-in-8 { animation-delay: 0.7s; }
-.fade-in-9 { animation-delay: 0.8s; }
 
 /* Project row hover */
 .project-row {
