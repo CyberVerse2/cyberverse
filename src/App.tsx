@@ -10,7 +10,7 @@ const projects = [
     name: "Whot!",
     description:
       "Nigeria's card game except you play against agentic Tinubu.",
-    url: "https://whot.wtf",
+    url: "https://whot.cyberverse.studio",
     year: "2026",
     logo: whotLogo,
   },
