@@ -12,6 +12,7 @@ const projects = [
     name: "Chicken",
     description:
       "a local-first macOS reading library for PDFs, EPUBs, and personal documents.",
+    url: "https://github.com/CyberVerse2/chicken",
     year: "2026",
     logo: chickenLogo,
     roundLogo: true,
@@ -20,6 +21,7 @@ const projects = [
     name: "Asterion",
     description:
       "an immersive native reading app for discovering novels and continuing deep-focus sessions.",
+    url: "https://github.com/CyberVerse2/asterion-ios",
     year: "2026",
     logo: asterionLogo,
     roundLogo: true,
@@ -195,30 +197,18 @@ function App() {
                       }}
                     />
                   </div>
-                  {"url" in project ? (
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        fontSize: "2rem",
-                        fontWeight: 400,
-                        textDecoration: "none",
-                      }}
-                    >
-                      {project.name}
-                    </a>
-                  ) : (
-                    <span
-                      style={{
-                        fontSize: "2rem",
-                        fontWeight: 400,
-                        color: "var(--text)",
-                      }}
-                    >
-                      {project.name}
-                    </span>
-                  )}
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      fontSize: "2rem",
+                      fontWeight: 400,
+                      textDecoration: "none",
+                    }}
+                  >
+                    {project.name}
+                  </a>
                 </div>
                 <p
                   style={{
