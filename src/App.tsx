@@ -4,8 +4,26 @@ import fofLogo from "./assets/fof/logo.jpg";
 import proxiLogo from "./assets/proxi/logo.png";
 import imitationgameLogo from "./assets/imitationgame/logo.png";
 import whotLogo from "./assets/whot/logo.ico";
+import asterionLogo from "./assets/asterion/logo.png";
+import chickenLogo from "./assets/chicken/logo.png";
 
 const projects = [
+  {
+    name: "Chicken",
+    description:
+      "a local-first macOS reading library for PDFs, EPUBs, and personal documents.",
+    year: "2026",
+    logo: chickenLogo,
+    roundLogo: true,
+  },
+  {
+    name: "Asterion",
+    description:
+      "an immersive native reading app for discovering novels and continuing deep-focus sessions.",
+    year: "2026",
+    logo: asterionLogo,
+    roundLogo: true,
+  },
   {
     name: "Whot!",
     description:
@@ -177,18 +195,30 @@ function App() {
                       }}
                     />
                   </div>
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      fontSize: "2rem",
-                      fontWeight: 400,
-                      textDecoration: "none",
-                    }}
-                  >
-                    {project.name}
-                  </a>
+                  {"url" in project ? (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        fontSize: "2rem",
+                        fontWeight: 400,
+                        textDecoration: "none",
+                      }}
+                    >
+                      {project.name}
+                    </a>
+                  ) : (
+                    <span
+                      style={{
+                        fontSize: "2rem",
+                        fontWeight: 400,
+                        color: "var(--text)",
+                      }}
+                    >
+                      {project.name}
+                    </span>
+                  )}
                 </div>
                 <p
                   style={{
