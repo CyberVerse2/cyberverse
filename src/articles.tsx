@@ -116,8 +116,7 @@ function LuckBody() {
       </P>
 
       <P>
-        If you put hard work into a low-upside system, you may become dependable
-        but stay financially trapped. If you put that same hard work into a
+        If you put hard work into a low-upside system, you'll only grow at linear time. If you put that same hard work into a
         high-upside system, one good result can change your options entirely.
       </P>
 
