@@ -1,5 +1,16 @@
 import type { ReactNode } from "react";
-import { Em, Formula, H2, P, Prose, Questions, Quote, Stack, Step } from "./prose";
+import {
+  Em,
+  Formula,
+  H2,
+  Note,
+  P,
+  Prose,
+  Questions,
+  Quote,
+  Stack,
+  Step,
+} from "./prose";
 
 export type Article = {
   slug: string;
@@ -14,6 +25,13 @@ export type Article = {
 function LuckBody() {
   return (
     <Prose>
+
+      <Note>
+        I'm not a billionaire — not yet. So read this as a thesis, not a memoir.
+        This is the model I'm betting my own life on for how outsized wealth actually
+        gets built. I'd rather write it down while I'm still climbing than wait
+        until I've arrived to say it.
+      </Note>
 
       <P>
         Becoming a billionaire is not mainly about hard work. It is about luck —

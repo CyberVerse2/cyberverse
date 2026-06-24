@@ -106,6 +106,53 @@ export function Formula({ children }: { children: ReactNode }) {
   );
 }
 
+/* Editorial aside / callout. Use for author's notes, caveats, framing. */
+export function Note({
+  children,
+  label = "Note",
+}: {
+  children: ReactNode;
+  label?: string;
+}) {
+  return (
+    <aside
+      style={{
+        display: "flex",
+        gap: "1.4rem",
+        background: "rgba(4, 26, 59, 0.025)",
+        border: "1px solid var(--border)",
+        borderRadius: "0.8rem",
+        padding: "1.6rem 1.8rem",
+        margin: "0 0 2.4rem",
+      }}
+    >
+      <span
+        style={{
+          flexShrink: 0,
+          fontSize: "1.1rem",
+          fontWeight: 600,
+          letterSpacing: "0.12em",
+          textTransform: "uppercase",
+          color: "var(--accent)",
+          paddingTop: "0.35rem",
+        }}
+      >
+        {label}
+      </span>
+      <p
+        style={{
+          margin: 0,
+          fontSize: "1.5rem",
+          lineHeight: 1.7,
+          color: "var(--text-secondary)",
+        }}
+      >
+        {children}
+      </p>
+    </aside>
+  );
+}
+
 /* Large pull-quote with an accent rule. */
 export function Quote({ children }: { children: ReactNode }) {
   return (
