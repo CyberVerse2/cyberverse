@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import wafflesLogo from "./assets/waffles/logo.svg";
 import predoLogo from "./assets/predo/logo.svg";
 import fofLogo from "./assets/fof/logo.jpg";
@@ -6,6 +7,9 @@ import imitationgameLogo from "./assets/imitationgame/logo.png";
 import whotLogo from "./assets/whot/logo.ico";
 import asterionLogo from "./assets/asterion/logo.png";
 import chickenLogo from "./assets/chicken/logo.png";
+import Article from "./Article";
+import { articles } from "./articles";
+import { Reveal } from "./Reveal";
 
 const projects = [
   {
@@ -76,7 +80,26 @@ const projects = [
   },
 ];
 
+function useHashRoute() {
+  const [hash, setHash] = useState(() => window.location.hash);
+  useEffect(() => {
+    const onChange = () => {
+      setHash(window.location.hash);
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener("hashchange", onChange);
+    return () => window.removeEventListener("hashchange", onChange);
+  }, []);
+  return hash;
+}
+
 function App() {
+  const hash = useHashRoute();
+  const match = hash.match(/^#\/writing\/(.+)$/);
+  if (match) {
+    return <Article slug={match[1]} />;
+  }
+
   return (
     <main
       style={{
@@ -95,7 +118,7 @@ function App() {
 
       <section
         className="fade-in"
-        style={{ marginBottom: "2rem", animationDelay: "0.1s" }}
+        style={{ marginBottom: "2rem", animationDelay: "0.06s" }}
       >
         <p
           style={{
@@ -112,7 +135,7 @@ function App() {
 
       <section
         className="fade-in"
-        style={{ marginBottom: "4rem", animationDelay: "0.2s" }}
+        style={{ marginBottom: "4rem", animationDelay: "0.12s" }}
       >
         <p
           style={{
@@ -146,7 +169,7 @@ function App() {
             textTransform: "uppercase",
             color: "var(--text-muted)",
             marginBottom: "2rem",
-            animationDelay: "0.3s",
+            animationDelay: "0.18s",
           }}
         >
           Projects
@@ -157,18 +180,17 @@ function App() {
           style={{ display: "flex", flexDirection: "column", gap: "3.5rem" }}
         >
           {projects.map((project, index) => (
-            <div
-              key={project.name}
-              className="project-row fade-in"
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "baseline",
-                gap: "2rem",
-                flexWrap: "wrap",
-                animationDelay: `${(index + 4) * 0.1}s`,
-              }}
-            >
+            <Reveal key={project.name} delay={(index % 6) * 0.05}>
+              <div
+                className="project-row"
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "baseline",
+                  gap: "2rem",
+                  flexWrap: "wrap",
+                }}
+              >
               <div style={{ flex: 1, minWidth: "20rem" }}>
                 <div
                   style={{
@@ -230,23 +252,94 @@ function App() {
               >
                 {project.year}
               </span>
-            </div>
+              </div>
+            </Reveal>
           ))}
         </div>
       </section>
 
-      <div
-        className="fade-in"
-        style={{
-          width: "100%",
-          height: "1px",
-          background: "var(--border)",
-          margin: "0 0 4rem",
-          animationDelay: "0.9s",
-        }}
-      />
+      <section style={{ marginBottom: "4rem" }}>
+        <Reveal>
+          <h2
+            style={{
+              fontSize: "1.3rem",
+              fontWeight: 500,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "var(--text-muted)",
+              marginBottom: "2rem",
+            }}
+          >
+            Writing
+          </h2>
+        </Reveal>
 
-      <section className="fade-in" style={{ animationDelay: "1s" }}>
+        <div
+          className="project-list"
+          style={{ display: "flex", flexDirection: "column", gap: "3.5rem" }}
+        >
+          {articles.map((article, index) => (
+            <Reveal key={article.slug} delay={(index % 6) * 0.05}>
+              <div
+                className="project-row"
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "baseline",
+                  gap: "2rem",
+                  flexWrap: "wrap",
+                }}
+              >
+              <div style={{ flex: 1, minWidth: "20rem" }}>
+                <a
+                  href={`#/writing/${article.slug}`}
+                  style={{
+                    fontSize: "2rem",
+                    fontWeight: 400,
+                    textDecoration: "none",
+                  }}
+                >
+                  {article.title}
+                </a>
+                <p
+                  style={{
+                    fontSize: "1.5rem",
+                    color: "var(--text-muted)",
+                    marginTop: "0.3rem",
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {article.description}
+                </p>
+              </div>
+              <span
+                style={{
+                  fontSize: "1.3rem",
+                  color: "var(--text-muted)",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {article.year}
+              </span>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <Reveal>
+        <div
+          style={{
+            width: "100%",
+            height: "1px",
+            background: "var(--border)",
+            margin: "0 0 4rem",
+          }}
+        />
+      </Reveal>
+
+      <Reveal>
+        <section>
         <p
           style={{
             fontSize: "1.7rem",
@@ -276,7 +369,8 @@ function App() {
           </a>
           .
         </p>
-      </section>
+        </section>
+      </Reveal>
     </main>
   );
 }

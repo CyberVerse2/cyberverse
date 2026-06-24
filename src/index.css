@@ -10,6 +10,11 @@
   --link-hover: #654FF1;
   --border: rgba(4, 26, 59, 0.08);
   --font: 'Bricolage Grotesque', system-ui, sans-serif;
+
+  /* Honkish easing: overshoot springs for delight, expo for smooth slides */
+  --ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-pop-soft: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-expo: cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 html {
@@ -77,20 +82,96 @@ a:hover {
 
 .fade-in {
   opacity: 0;
-  animation: fadeUp 0.7s ease forwards;
+  animation: fadeUp 0.45s var(--ease-expo) forwards;
 }
 
 
-/* Project row hover */
+/* Project row hover — overshoot nudge */
 .project-row {
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition: transform 0.22s var(--ease-pop), opacity 0.2s ease;
 }
 
-.project-list:hover .project-row {
-  filter: opacity(0.4);
+@media (hover: hover) and (pointer: fine) {
+  .project-list:hover .project-row {
+    opacity: 0.4;
+  }
+
+  .project-list:hover .project-row:hover {
+    opacity: 1;
+    transform: translateX(6px);
+  }
 }
 
-.project-list:hover .project-row:hover {
-  filter: opacity(1);
-  transform: translateX(4px);
+/* Scroll-triggered reveal: calm ease-out rise (no bounce — it's reading copy) */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.45s var(--ease-expo),
+    transform 0.45s var(--ease-expo);
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Pop-with-overshoot, used by accent blocks on hover */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.015);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.formula-box {
+  transition: transform 0.35s var(--ease-pop), box-shadow 0.3s ease;
+  cursor: default;
+}
+
+/* Numbered question markers bounce when you hover the row */
+.q-num {
+  transition: transform 0.3s var(--ease-pop);
+}
+
+/* Playful pops kept on interactive elements only, gated to real pointers */
+@media (hover: hover) and (pointer: fine) {
+  .formula-box:hover {
+    transform: scale(1.018);
+    box-shadow: 0 0.6rem 2.4rem rgba(4, 26, 59, 0.07);
+  }
+
+  .q-item:hover .q-num {
+    transform: scale(1.15);
+  }
+}
+
+/* Respect users who'd rather not have motion */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in,
+  .reveal {
+    animation: none;
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+  .project-row,
+  .project-list:hover .project-row:hover {
+    transition: none;
+    transform: none;
+  }
+  .formula-box:hover,
+  .q-item:hover .q-num {
+    transform: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }
