@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { RevealGroup } from "./Reveal";
+import { Em, Formula, H2, P, Prose, Questions, Quote, Stack, Step } from "./prose";
 
 export type Article = {
   slug: string;
@@ -11,150 +11,104 @@ export type Article = {
   Body: () => ReactNode;
 };
 
-/* Shared inline styles so article copy blends with the rest of the site */
-const para = {
-  fontSize: "1.7rem",
-  lineHeight: 1.85,
-  color: "var(--text-secondary)",
-  marginBottom: "2rem",
-} as const;
-
-const heading = {
-  fontSize: "1.3rem",
-  fontWeight: 500,
-  letterSpacing: "0.1em",
-  textTransform: "uppercase",
-  color: "var(--text-muted)",
-  margin: "4.5rem 0 2rem",
-} as const;
-
-const emphasis = { color: "var(--text)", fontWeight: 400 } as const;
-
 function LuckBody() {
   return (
-    <RevealGroup>
-      <p style={para}>
+    <Prose>
+      <P>
         Work harder, stay consistent, never give up, and somehow the outcome
         will come. That is the story most of us are told. But I don't think it
         is the full truth.
-      </p>
+      </P>
 
-      <p style={para}>
+      <P>
         Becoming a billionaire is not mainly about hard work. It is about luck —
         but not in the way people usually think about luck.
-      </p>
+      </P>
 
-      <p style={para}>
+      <P>
         Most people treat luck like something random. Something that happens to
         you. But there is another kind of luck: the kind you create by putting
         yourself in places where rare outcomes can reach you.
-      </p>
+      </P>
 
-      <p style={para}>
-        I call this <span style={emphasis}>luck engineering</span>.
-      </p>
+      <P>
+        I call this <Em>luck engineering</Em>.
+      </P>
 
-      <h2 style={heading}>Luck Engineering</h2>
+      <H2 label="Luck Engineering">Luck Engineering</H2>
 
-      <p style={para}>The formula is simple:</p>
+      <P>The formula is simple:</P>
 
-      <div
-        className="formula-box"
-        style={{
-          fontSize: "1.9rem",
-          textAlign: "center",
-          color: "var(--text)",
-          background: "rgba(4, 26, 59, 0.03)",
-          border: "1px solid var(--border)",
-          borderLeft: "3px solid var(--accent)",
-          borderRadius: "0.6rem",
-          padding: "2rem 2.4rem",
-          margin: "0 0 3rem",
-          letterSpacing: "0.01em",
-        }}
-      >
-        luck = hard work × positioning
-      </div>
+      <Formula>luck = hard work × positioning</Formula>
 
-      <p style={para}>
-        <span style={emphasis}>Hard work</span> is the sustained effort applied
-        long enough to create skill, output, or advantage.
-      </p>
+      <P>
+        <Em>Hard work</Em> is the sustained effort applied long enough to create
+        skill, output, or advantage.
+      </P>
 
-      <p style={para}>
-        <span style={emphasis}>Positioning</span> is choosing the right arena
-        for that effort. It is finding opportunities where your work has a
-        chance to produce an outcome much bigger than the input.
-      </p>
+      <P>
+        <Em>Positioning</Em> is choosing the right arena for that effort. It is
+        finding opportunities where your work has a chance to produce an outcome
+        much bigger than the input.
+      </P>
 
-      <p style={para}>This is where asymmetric opportunities come in.</p>
+      <P>This is where asymmetric opportunities come in.</P>
 
-      <p style={para}>
-        An <span style={emphasis}>asymmetric opportunity</span> is a situation
-        where the downside is limited, but the upside can be much larger than
-        the risk, cost, or effort required.
-      </p>
+      <P>
+        An <Em>asymmetric opportunity</Em> is a situation where the downside is
+        limited, but the upside can be much larger than the risk, cost, or
+        effort required.
+      </P>
 
-      <p style={para}>
+      <P>
         In 2024, I worked a job that paid me 200,000 naira a month. As a
         second-year university student, that was enough to take care of myself
         and buy some of the things I wanted. But I still felt trapped, because
         every meaningful expense had to be planned months ahead. I wasn't poor —
         I just didn't want to live like that anymore.
-      </p>
+      </P>
 
-      <p style={para}>Then I started doing hackathons.</p>
+      <P>Then I started doing hackathons.</P>
 
-      <p style={para}>
+      <P>
         I entered one with a friend, and we won 2 million naira. That was the
         equivalent of ten months of my salary, in a single month.
-      </p>
+      </P>
 
-      <p style={para}>That changed how I understood work.</p>
+      <P>That changed how I understood work.</P>
 
-      <p style={para}>
+      <P>
         The effort was still intense, but the outcome was completely different.
         A few days or weeks of focused building could produce a result my job
         could not match in almost a year.
-      </p>
+      </P>
 
-      <blockquote
-        style={{
-          margin: "3rem 0",
-          padding: "0.4rem 0 0.4rem 2.4rem",
-          borderLeft: "3px solid var(--accent)",
-          fontSize: "2.3rem",
-          lineHeight: 1.5,
-          fontStyle: "italic",
-          color: "var(--text)",
-          fontWeight: 300,
-        }}
-      >
-        So I quit my job and started doing hackathons full time.
-      </blockquote>
+      <Quote>So I quit my job and started doing hackathons full time.</Quote>
 
-      <p style={para}>
+      <P>
         Hackathons were not easy money. They were an asymmetric opportunity. I
         could spend a few intense days building, presenting, and competing — and
         one win could produce more than months of predictable salary. That
         doesn't mean the work was easier. The upside was just that much more
         attractive.
-      </p>
+      </P>
 
-      <h2 style={heading}>How to Identify Asymmetric Opportunities</h2>
+      <H2 id="identify" label="Identifying Asymmetry">
+        How to Identify Asymmetric Opportunities
+      </H2>
 
-      <p style={para}>
+      <P>
         Most asymmetric opportunities work like this: they do not remove effort.
         They change what effort can become.
-      </p>
+      </P>
 
-      <p style={para}>
+      <P>
         If you put hard work into a low-upside system, you may become dependable
         but stay financially trapped. If you put that same hard work into a
         high-upside system, one good result can change your options entirely.
-      </p>
+      </P>
 
-      <p style={para}>
+      <P>
         So the better question is not,{" "}
         <em style={{ fontStyle: "italic" }}>"What should I do now?"</em> The
         better question is,{" "}
@@ -162,21 +116,12 @@ function LuckBody() {
           "Where can I find opportunities where my effort has the chance to
           multiply?"
         </em>
-      </p>
+      </P>
 
-      <p style={para}>
-        Whenever you find an opportunity, ask yourself three questions.
-      </p>
+      <P>Whenever you find an opportunity, ask yourself three questions.</P>
 
-      <ol
-        style={{
-          listStyle: "none",
-          margin: "0 0 2rem",
-          padding: 0,
-          counterReset: "q",
-        }}
-      >
-        {[
+      <Questions
+        items={[
           {
             q: "What do I have to lose?",
             a: "This is the cost of choosing this opportunity over others. It could be time, money, energy, reputation, focus, or comfort.",
@@ -189,160 +134,103 @@ function LuckBody() {
             q: "What advantage do I have that increases my chances?",
             a: "This could be your location, strategy, skills, network, taste, speed, context, or access to information. It doesn't need to be something nobody else has. It only needs to make you better suited for that opportunity than the average person.",
           },
-        ].map((item, i) => (
-          <li
-            key={i}
-            className="q-item"
-            style={{
-              position: "relative",
-              padding: "2rem 0 2rem 5.6rem",
-              borderTop: "1px solid var(--border)",
-              ...(i === 2 ? { borderBottom: "1px solid var(--border)" } : {}),
-            }}
-          >
-            <span
-              className="q-num"
-              style={{
-                position: "absolute",
-                left: 0,
-                top: "2rem",
-                width: "3.6rem",
-                height: "3.6rem",
-                lineHeight: "3.6rem",
-                textAlign: "center",
-                borderRadius: "50%",
-                background: "var(--accent)",
-                color: "var(--bg)",
-                fontSize: "1.5rem",
-                fontWeight: 500,
-              }}
-            >
-              {i + 1}
-            </span>
-            <span
-              style={{
-                display: "block",
-                fontSize: "1.8rem",
-                color: "var(--text)",
-                marginBottom: "0.4rem",
-              }}
-            >
-              {item.q}
-            </span>
-            <span
-              style={{
-                fontSize: "1.6rem",
-                color: "var(--text-muted)",
-                lineHeight: 1.65,
-              }}
-            >
-              {item.a}
-            </span>
-          </li>
-        ))}
-      </ol>
+        ]}
+      />
 
-      <p style={para}>
+      <P>
         In my case, hackathons made sense because I had a knack for ideas, I
         could build quickly, and I had soft skills most technical people didn't.
         I could write pitch decks, set team strategy, and communicate my ideas
         clearly to judges.
-      </p>
+      </P>
 
-      <p style={para}>
+      <P>
         Those advantages did not guarantee I would win — but they improved my
         odds by a lot.
-      </p>
+      </P>
 
-      <p style={para}>
+      <P>
         Write yours down. Then give yourself a realistic estimate of the risk,
         the upside, and the odds.
-      </p>
+      </P>
 
-      <h2 style={heading}>How This Can Make You a Billionaire</h2>
+      <H2 id="scaling" label="Scaling to Billions">
+        How This Can Make You a Billionaire
+      </H2>
 
-      <p style={para}>This same pattern applies at a much larger scale.</p>
+      <P>This same pattern applies at a much larger scale.</P>
 
-      <p style={para}>
+      <P>
         For billionaires, asymmetric opportunities often appear as large-scale
         changes in the world. Most extreme wealth is created when something new
         changes how people live, work, buy, communicate, or move.
-      </p>
+      </P>
 
-      <p style={para}>
-        John D. Rockefeller became a billionaire during the Industrial
-        Revolution.
-        <br />
-        Henry Ford became one during the Gilded Age.
-        <br />
-        Bill Gates, Jeff Bezos, and Larry Ellison became billionaires during the
-        Dot-Com Boom.
-      </p>
+      <Stack
+        lines={[
+          "John D. Rockefeller became a billionaire during the Industrial Revolution.",
+          "Henry Ford became one during the Gilded Age.",
+          "Bill Gates, Jeff Bezos, and Larry Ellison became billionaires during the Dot-Com Boom.",
+        ]}
+      />
 
-      <p style={para}>
+      <P>
         These eras were not easy. They were uncertain, competitive, and full of
         failure. But they were asymmetric, because the people who entered early
         with the right advantages could build ownership in markets that were
         expanding faster than most people understood.
-      </p>
+      </P>
 
-      <p style={para}>That is the pattern:</p>
+      <P>That is the pattern:</P>
 
-      <p style={{ ...para, color: "var(--text)", fontWeight: 400 }}>
-        Opportunity.
-        <br />
-        Unusual advantage.
-        <br />
-        Strategy.
-        <br />
-        Relentless execution.
-      </p>
+      <Stack
+        bold
+        lines={[
+          "Opportunity.",
+          "Unusual advantage.",
+          "Strategy.",
+          "Relentless execution.",
+        ]}
+      />
 
-      <h2 style={heading}>Luck Engineering 101</h2>
+      <H2 label="Luck Engineering 101">Luck Engineering 101</H2>
 
-      <p style={para}>
+      <P>
         So if you want to engineer luck, start by identifying the outcome you
         want and the skills that would increase your odds of getting it.
-      </p>
+      </P>
 
-      <p style={para}>
-        <span style={emphasis}>
-          First, learn soft skills that multiply the skills you already have.
-        </span>
-        <br />
+      <Step lead="First, learn soft skills that multiply the skills you already have.">
         In my case, I could build good products quickly — but creating beautiful
         pitch decks helped me communicate those ideas clearly. That one
         complementary skill increased my chances of winning hackathons
         dramatically.
-      </p>
+      </Step>
 
-      <p style={para}>
-        <span style={emphasis}>Second, learn how to strategize.</span>
-        <br />A strategy is a clear roadmap from where you are to where you want
-        to be. It should include the opportunity you are chasing, the
-        competitors in that space, their strengths, their weaknesses, and the
-        angle you can use to win.
-      </p>
+      <Step lead="Second, learn how to strategize.">
+        A strategy is a clear roadmap from where you are to where you want to be.
+        It should include the opportunity you are chasing, the competitors in
+        that space, their strengths, their weaknesses, and the angle you can use
+        to win.
+      </Step>
 
-      <p style={para}>
-        <span style={emphasis}>Third, tell yourself the truth.</span>
-        <br />
+      <Step lead="Third, tell yourself the truth.">
         Do not enter asymmetric opportunities with hopes and dreams. Ask what
         the real risk is, what the real upside is, and whether you have any
         advantage that improves your odds.
-      </p>
+      </Step>
 
-      <h2 style={heading}>Conclusion</h2>
+      <H2 label="Conclusion">Conclusion</H2>
 
-      <p style={para}>
+      <P>
         If your plan is grounded in reality, luck will have more room to do its
         work.
-      </p>
+      </P>
 
-      <p style={para}>That is luck engineering in a nutshell.</p>
+      <P>That is luck engineering in a nutshell.</P>
 
-      <p style={{ ...para, marginBottom: 0 }}>Good luck on your endeavors.</p>
-    </RevealGroup>
+      <P style={{ marginBottom: 0 }}>Good luck on your endeavors.</P>
+    </Prose>
   );
 }
 

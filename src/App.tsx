@@ -1,7 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import {
+  Link,
+  Route,
+  Routes,
+  useLocation,
+  useParams,
+} from "react-router-dom";
 import wafflesLogo from "./assets/waffles/logo.svg";
-import predoLogo from "./assets/predo/logo.svg";
-import fofLogo from "./assets/fof/logo.jpg";
 import proxiLogo from "./assets/proxi/logo.png";
 import imitationgameLogo from "./assets/imitationgame/logo.png";
 import whotLogo from "./assets/whot/logo.ico";
@@ -63,43 +68,35 @@ const projects = [
     year: "2025",
     logo: wafflesLogo,
   },
-  {
-    name: "Friends on Farcaster",
-    description:
-      "A social experiment where users mint a group photo of their friends on Christmas Day.",
-    url: "https://fof.fun",
-    year: "2025",
-    logo: fofLogo,
-  },
-  {
-    name: "Predo",
-    description: "prediction market agent for cabal groups.",
-    url: "https://predo.fun",
-    year: "2024",
-    logo: predoLogo,
-  },
 ];
 
-function useHashRoute() {
-  const [hash, setHash] = useState(() => window.location.hash);
+function ScrollToTop() {
+  const { pathname } = useLocation();
   useEffect(() => {
-    const onChange = () => {
-      setHash(window.location.hash);
-      window.scrollTo(0, 0);
-    };
-    window.addEventListener("hashchange", onChange);
-    return () => window.removeEventListener("hashchange", onChange);
-  }, []);
-  return hash;
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
+function ArticleRoute() {
+  const { slug = "" } = useParams();
+  return <Article key={slug} slug={slug} />;
 }
 
 function App() {
-  const hash = useHashRoute();
-  const match = hash.match(/^#\/writing\/(.+)$/);
-  if (match) {
-    return <Article slug={match[1]} />;
-  }
+  return (
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/writing/:slug" element={<ArticleRoute />} />
+        <Route path="*" element={<Home />} />
+      </Routes>
+    </>
+  );
+}
 
+function Home() {
   return (
     <main
       style={{
@@ -291,8 +288,8 @@ function App() {
                 }}
               >
               <div style={{ flex: 1, minWidth: "20rem" }}>
-                <a
-                  href={`#/writing/${article.slug}`}
+                <Link
+                  to={`/writing/${article.slug}`}
                   style={{
                     fontSize: "2rem",
                     fontWeight: 400,
@@ -300,7 +297,7 @@ function App() {
                   }}
                 >
                   {article.title}
-                </a>
+                </Link>
                 <p
                   style={{
                     fontSize: "1.5rem",

@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { getArticle } from "./articles";
+import { TableOfContents } from "./TableOfContents";
 
 function Article({ slug }: { slug: string }) {
   const article = getArticle(slug);
@@ -12,9 +14,9 @@ function Article({ slug }: { slug: string }) {
           padding: "8rem 2.4rem 12rem",
         }}
       >
-        <a href="#" style={{ fontSize: "1.5rem" }}>
+        <Link to="/" style={{ fontSize: "1.5rem" }}>
           ← Back
-        </a>
+        </Link>
         <p
           style={{
             fontSize: "1.7rem",
@@ -38,9 +40,11 @@ function Article({ slug }: { slug: string }) {
         padding: "6rem 2.4rem 12rem",
       }}
     >
+      <TableOfContents />
+
       <header className="fade-in" style={{ marginBottom: "3rem" }}>
-        <a
-          href="#"
+        <Link
+          to="/"
           style={{
             fontSize: "1.4rem",
             color: "var(--text-muted)",
@@ -48,7 +52,7 @@ function Article({ slug }: { slug: string }) {
           }}
         >
           ← Cyberverse
-        </a>
+        </Link>
       </header>
 
       <article>
@@ -131,7 +135,7 @@ function Article({ slug }: { slug: string }) {
             @thecyberverse
           </a>{" "}
           or back to{" "}
-          <a href="#">Cyberverse</a>.
+          <Link to="/">Cyberverse</Link>.
         </p>
       </footer>
     </main>
