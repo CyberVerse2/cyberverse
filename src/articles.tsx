@@ -48,7 +48,7 @@ function LuckBody() {
         I call this <Em>luck engineering</Em>.
       </P>
 
-      <H2 label="Luck Engineering">Luck Engineering</H2>
+      <H2 label="The Formula">The Formula</H2>
 
       <P>The formula is simple:</P>
 
@@ -248,8 +248,8 @@ function LuckBody() {
 
 export const articles: Article[] = [
   {
-    slug: "what-billionaires-understand-about-luck",
-    title: "What Billionaires Understand About Luck",
+    slug: "luck-engineering",
+    title: "Luck Engineering",
     description:
       "Most people think the answer is hard work. The real formula is luck engineering — putting yourself where rare outcomes can reach you.",
     date: "June 2026",
