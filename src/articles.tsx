@@ -14,11 +14,6 @@ export type Article = {
 function LuckBody() {
   return (
     <Prose>
-      <P>
-        Work harder, stay consistent, never give up, and somehow the outcome
-        will come. That is the story most of us are told. But I don't think it
-        is the full truth.
-      </P>
 
       <P>
         Becoming a billionaire is not mainly about hard work. It is about luck —
