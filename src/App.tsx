@@ -6,6 +6,7 @@ import {
   useLocation,
   useParams,
 } from "react-router-dom";
+import unbrokenLogo from "./assets/unbroken/logo.png";
 import wafflesLogo from "./assets/waffles/logo.svg";
 import proxiLogo from "./assets/proxi/logo.png";
 import imitationgameLogo from "./assets/imitationgame/logo.png";
@@ -17,6 +18,15 @@ import { articles } from "./articles";
 import { Reveal } from "./Reveal";
 
 const projects = [
+  {
+    name: "Unbroken",
+    description:
+      "a free, open-source macOS habit tracker that lives in your menu bar — the flame stays lit while you show up.",
+    url: "https://github.com/CyberVerse2/unbroken",
+    year: "2026",
+    logo: unbrokenLogo,
+    roundLogo: true,
+  },
   {
     name: "Chicken",
     description:
