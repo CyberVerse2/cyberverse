@@ -53,7 +53,7 @@ const projects = [
     name: "Cassie",
     description:
       "a trading agent that lets you trade any alpha on your timeline, on any chain.",
-    url: "https://github.com/CyberVerse2/cassie",
+    url: "https://cassie.trade",
     year: "2026",
     logo: cassieLogo,
     roundLogo: true,
