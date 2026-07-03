@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   Link,
   Route,
@@ -189,6 +189,60 @@ function ProjectList({ projects }: { projects: typeof apps }) {
   );
 }
 
+const projectTabs = [
+  { id: "apps", label: "Apps", projects: apps },
+  { id: "experiments", label: "Experiments", projects: experiments },
+] as const;
+
+function ProjectTabs() {
+  const [active, setActive] = useState<(typeof projectTabs)[number]["id"]>(
+    "apps"
+  );
+  const activeTab =
+    projectTabs.find((tab) => tab.id === active) ?? projectTabs[0];
+
+  return (
+    <section style={{ marginBottom: "4rem" }}>
+      <div
+        className="fade-in"
+        style={{
+          display: "flex",
+          gap: "2rem",
+          marginBottom: "2rem",
+          animationDelay: "0.18s",
+        }}
+      >
+        {projectTabs.map((tab) => {
+          const isActive = tab.id === active;
+          return (
+            <button
+              key={tab.id}
+              type="button"
+              onClick={() => setActive(tab.id)}
+              style={{
+                background: "none",
+                border: "none",
+                padding: 0,
+                cursor: "pointer",
+                fontSize: "1.3rem",
+                fontWeight: 500,
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+                color: isActive ? "var(--text)" : "var(--text-muted)",
+                transition: "color 0.2s ease",
+              }}
+            >
+              {tab.label}
+            </button>
+          );
+        })}
+      </div>
+
+      <ProjectList key={activeTab.id} projects={activeTab.projects} />
+    </section>
+  );
+}
+
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -275,43 +329,7 @@ function Home() {
         </p>
       </section>
 
-      <section style={{ marginBottom: "4rem" }}>
-        <h2
-          className="fade-in"
-          style={{
-            fontSize: "1.3rem",
-            fontWeight: 500,
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-            color: "var(--text-muted)",
-            marginBottom: "2rem",
-            animationDelay: "0.18s",
-          }}
-        >
-          Apps
-        </h2>
-
-        <ProjectList projects={apps} />
-      </section>
-
-      <section style={{ marginBottom: "4rem" }}>
-        <Reveal>
-          <h2
-            style={{
-              fontSize: "1.3rem",
-              fontWeight: 500,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: "var(--text-muted)",
-              marginBottom: "2rem",
-            }}
-          >
-            Experiments
-          </h2>
-        </Reveal>
-
-        <ProjectList projects={experiments} />
-      </section>
+      <ProjectTabs />
 
       <section style={{ marginBottom: "4rem" }}>
         <Reveal>
