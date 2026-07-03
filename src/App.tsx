@@ -13,6 +13,7 @@ import imitationgameLogo from "./assets/imitationgame/logo.png";
 import whotLogo from "./assets/whot/logo.ico";
 import asterionLogo from "./assets/asterion/logo.png";
 import chickenLogo from "./assets/chicken/logo.png";
+import cassieLogo from "./assets/cassie/logo.png";
 import Article from "./Article";
 import { articles } from "./articles";
 import { Reveal } from "./Reveal";
@@ -26,6 +27,7 @@ const projects = [
     year: "2026",
     logo: unbrokenLogo,
     roundLogo: true,
+    category: "app",
   },
   {
     name: "Chicken",
@@ -35,6 +37,7 @@ const projects = [
     year: "2026",
     logo: chickenLogo,
     roundLogo: true,
+    category: "app",
   },
   {
     name: "Asterion",
@@ -44,6 +47,17 @@ const projects = [
     year: "2026",
     logo: asterionLogo,
     roundLogo: true,
+    category: "app",
+  },
+  {
+    name: "Cassie",
+    description:
+      "a trading agent that lets you trade any alpha on your timeline, on any chain.",
+    url: "https://github.com/CyberVerse2/cassie",
+    year: "2026",
+    logo: cassieLogo,
+    roundLogo: true,
+    category: "app",
   },
   {
     name: "Whot!",
@@ -52,6 +66,7 @@ const projects = [
     url: "https://whot.cyberverse.studio",
     year: "2026",
     logo: whotLogo,
+    category: "experiment",
   },
   {
     name: "Proxi",
@@ -61,6 +76,7 @@ const projects = [
     year: "2026",
     logo: proxiLogo,
     roundLogo: true,
+    category: "experiment",
   },
   {
     name: "Imitation Game",
@@ -70,6 +86,7 @@ const projects = [
     year: "2026",
     logo: imitationgameLogo,
     roundLogo: true,
+    category: "experiment",
   },
   {
     name: "Waffles",
@@ -77,8 +94,100 @@ const projects = [
     url: "https://farcaster.xyz/miniapps/sbpPNle-R2-V/waffles",
     year: "2025",
     logo: wafflesLogo,
+    category: "app",
   },
 ];
+
+const apps = projects.filter((project) => project.category === "app");
+const experiments = projects.filter(
+  (project) => project.category === "experiment"
+);
+
+function ProjectList({ projects }: { projects: typeof apps }) {
+  return (
+    <div
+      className="project-list"
+      style={{ display: "flex", flexDirection: "column", gap: "3.5rem" }}
+    >
+      {projects.map((project, index) => (
+        <Reveal key={project.name} delay={(index % 6) * 0.05}>
+          <div
+            className="project-row"
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "baseline",
+              gap: "2rem",
+              flexWrap: "wrap",
+            }}
+          >
+            <div style={{ flex: 1, minWidth: "20rem" }}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.8rem",
+                }}
+              >
+                <div
+                  style={{
+                    width: "2.4rem",
+                    height: "2.4rem",
+                    borderRadius: "0.4rem",
+                    overflow: "hidden",
+                    flexShrink: 0,
+                  }}
+                >
+                  <img
+                    src={project.logo}
+                    alt={`${project.name} logo`}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      transform: project.roundLogo ? "scale(1.3)" : undefined,
+                    }}
+                  />
+                </div>
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    fontSize: "2rem",
+                    fontWeight: 400,
+                    textDecoration: "none",
+                  }}
+                >
+                  {project.name}
+                </a>
+              </div>
+              <p
+                style={{
+                  fontSize: "1.5rem",
+                  color: "var(--text-muted)",
+                  marginTop: "0.3rem",
+                  lineHeight: 1.5,
+                }}
+              >
+                {project.description}
+              </p>
+            </div>
+            <span
+              style={{
+                fontSize: "1.3rem",
+                color: "var(--text-muted)",
+                whiteSpace: "nowrap",
+              }}
+            >
+              {project.year}
+            </span>
+          </div>
+        </Reveal>
+      ))}
+    </div>
+  );
+}
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -179,90 +288,29 @@ function Home() {
             animationDelay: "0.18s",
           }}
         >
-          Projects
+          Apps
         </h2>
 
-        <div
-          className="project-list"
-          style={{ display: "flex", flexDirection: "column", gap: "3.5rem" }}
-        >
-          {projects.map((project, index) => (
-            <Reveal key={project.name} delay={(index % 6) * 0.05}>
-              <div
-                className="project-row"
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "baseline",
-                  gap: "2rem",
-                  flexWrap: "wrap",
-                }}
-              >
-              <div style={{ flex: 1, minWidth: "20rem" }}>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "0.8rem",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "2.4rem",
-                      height: "2.4rem",
-                      borderRadius: "0.4rem",
-                      overflow: "hidden",
-                      flexShrink: 0,
-                    }}
-                  >
-                    <img
-                      src={project.logo}
-                      alt={`${project.name} logo`}
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                        transform: project.roundLogo ? "scale(1.3)" : undefined,
-                      }}
-                    />
-                  </div>
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      fontSize: "2rem",
-                      fontWeight: 400,
-                      textDecoration: "none",
-                    }}
-                  >
-                    {project.name}
-                  </a>
-                </div>
-                <p
-                  style={{
-                    fontSize: "1.5rem",
-                    color: "var(--text-muted)",
-                    marginTop: "0.3rem",
-                    lineHeight: 1.5,
-                  }}
-                >
-                  {project.description}
-                </p>
-              </div>
-              <span
-                style={{
-                  fontSize: "1.3rem",
-                  color: "var(--text-muted)",
-                  whiteSpace: "nowrap",
-                }}
-              >
-                {project.year}
-              </span>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        <ProjectList projects={apps} />
+      </section>
+
+      <section style={{ marginBottom: "4rem" }}>
+        <Reveal>
+          <h2
+            style={{
+              fontSize: "1.3rem",
+              fontWeight: 500,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+              color: "var(--text-muted)",
+              marginBottom: "2rem",
+            }}
+          >
+            Experiments
+          </h2>
+        </Reveal>
+
+        <ProjectList projects={experiments} />
       </section>
 
       <section style={{ marginBottom: "4rem" }}>
