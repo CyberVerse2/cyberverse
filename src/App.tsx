@@ -14,6 +14,7 @@ import whotLogo from "./assets/whot/logo.ico";
 import asterionLogo from "./assets/asterion/logo.png";
 import chickenLogo from "./assets/chicken/logo.png";
 import cassieLogo from "./assets/cassie/logo.png";
+import designerLogo from "./assets/designer/logo.svg";
 import solvaneLogo from "./assets/solvane/logo.svg";
 import wardenLogo from "./assets/warden/logo.svg";
 import Article from "./Article";
@@ -21,6 +22,15 @@ import { articles } from "./articles";
 import { Reveal } from "./Reveal";
 
 const projects = [
+  {
+    name: "Designer",
+    description:
+      "an AI art director for creating brand visuals, illustrations, flyers, and social graphics through conversation.",
+    url: "https://designer.cyberverse.cloud/login",
+    year: "2026",
+    logo: designerLogo,
+    category: "app",
+  },
   {
     name: "Warden",
     description:
