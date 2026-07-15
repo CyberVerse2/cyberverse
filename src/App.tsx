@@ -14,11 +14,31 @@ import whotLogo from "./assets/whot/logo.ico";
 import asterionLogo from "./assets/asterion/logo.png";
 import chickenLogo from "./assets/chicken/logo.png";
 import cassieLogo from "./assets/cassie/logo.png";
+import solvaneLogo from "./assets/solvane/logo.svg";
+import wardenLogo from "./assets/warden/logo.svg";
 import Article from "./Article";
 import { articles } from "./articles";
 import { Reveal } from "./Reveal";
 
 const projects = [
+  {
+    name: "Warden",
+    description:
+      "a control plane that gives AI agents wallets with spend policies, approvals, threat checks, and receipts.",
+    url: "https://github.com/CyberVerse2/warden",
+    year: "2026",
+    logo: wardenLogo,
+    category: "app",
+  },
+  {
+    name: "Solvane",
+    description:
+      "wallet infrastructure for AI agents, with onchain policy governing what every agent can spend.",
+    url: "https://solvane.cyberverse.cloud",
+    year: "2026",
+    logo: solvaneLogo,
+    category: "app",
+  },
   {
     name: "Unbroken",
     description:
