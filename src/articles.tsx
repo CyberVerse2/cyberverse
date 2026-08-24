@@ -251,7 +251,7 @@ export const articles: Article[] = [
     slug: "luck-engineering",
     title: "Luck Engineering",
     description:
-      "Most people think the answer is hard work. The real formula is luck engineering — putting yourself where rare outcomes can reach you.",
+      "luck has a formula and it's not hard work.",
     date: "June 2026",
     year: "2026",
     readingTime: "8 min read",

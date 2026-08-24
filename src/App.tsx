@@ -6,57 +6,24 @@ import {
   useLocation,
   useParams,
 } from "react-router-dom";
-import unbrokenLogo from "./assets/unbroken/logo.png";
-import wafflesLogo from "./assets/waffles/logo.svg";
-import proxiLogo from "./assets/proxi/logo.png";
-import imitationgameLogo from "./assets/imitationgame/logo.png";
-import whotLogo from "./assets/whot/logo.ico";
-import asterionLogo from "./assets/asterion/logo.png";
-import chickenLogo from "./assets/chicken/logo.png";
-import cassieLogo from "./assets/cassie/logo.png";
-import designerLogo from "./assets/designer/logo.svg";
 import Article from "./Article";
 import { articles } from "./articles";
 import { Reveal } from "./Reveal";
 
 const projects = [
   {
-    name: "Designer",
+    name: "Munari",
     description:
-      "an AI art director for creating brand visuals, illustrations, flyers, and social graphics through conversation.",
-    url: "https://designer.cyberverse.cloud/login",
-    year: "2026",
-    logo: designerLogo,
+      "your design agent that helps you bring your ideas to life.",
+    url: "https://munari.app",
     category: "app",
-  },
-  {
-    name: "Unbroken",
-    description:
-      "a free, open-source macOS habit tracker that lives in your menu bar — the flame stays lit while you show up.",
-    url: "https://github.com/CyberVerse2/unbroken",
-    year: "2026",
-    logo: unbrokenLogo,
-    roundLogo: true,
-    category: "app",
-  },
-  {
-    name: "Chicken",
-    description:
-      "a local-first macOS reading library for PDFs, EPUBs, and personal documents.",
-    url: "https://github.com/CyberVerse2/chicken",
-    year: "2026",
-    logo: chickenLogo,
-    roundLogo: true,
-    category: "app",
+    isNew: true,
   },
   {
     name: "Asterion",
     description:
-      "an immersive native reading app for discovering novels and continuing deep-focus sessions.",
+      "a superapp for novels, manhwa, manga, movies, and anime.",
     url: "https://github.com/CyberVerse2/asterion-ios",
-    year: "2026",
-    logo: asterionLogo,
-    roundLogo: true,
     category: "app",
   },
   {
@@ -64,9 +31,25 @@ const projects = [
     description:
       "a trading agent that lets you trade any alpha on your timeline, on any chain.",
     url: "https://cassie.trade",
-    year: "2026",
-    logo: cassieLogo,
-    roundLogo: true,
+    category: "app",
+  },
+  {
+    name: "Waffles",
+    description: "guess movie scenes in 10 seconds and win usdc.",
+    url: "https://farcaster.xyz/miniapps/sbpPNle-R2-V/waffles",
+    category: "app",
+  },
+  {
+    name: "Chicken",
+    description: "an offline book reading app for all formats.",
+    url: "https://github.com/CyberVerse2/chicken",
+    category: "app",
+  },
+  {
+    name: "Unbroken",
+    description:
+      "a free and open source tracker to help you create new habits.",
+    url: "https://github.com/CyberVerse2/unbroken",
     category: "app",
   },
   {
@@ -74,8 +57,6 @@ const projects = [
     description:
       "Nigeria's card game except you play against agentic Tinubu.",
     url: "https://whot.cyberverse.cloud",
-    year: "2026",
-    logo: whotLogo,
     category: "experiment",
   },
   {
@@ -83,9 +64,6 @@ const projects = [
     description:
       "clone yourself as an ai agent that talks to people on your behalf.",
     url: "https://proxi.fun",
-    year: "2026",
-    logo: proxiLogo,
-    roundLogo: true,
     category: "experiment",
   },
   {
@@ -93,18 +71,7 @@ const projects = [
     description:
       "a social deduction game where you figure out who's human and who's AI.",
     url: "https://imitationgame.fun",
-    year: "2026",
-    logo: imitationgameLogo,
-    roundLogo: true,
     category: "experiment",
-  },
-  {
-    name: "Waffles",
-    description: "guess movie scenes in 10 seconds and win usdc.",
-    url: "https://farcaster.xyz/miniapps/sbpPNle-R2-V/waffles",
-    year: "2025",
-    logo: wafflesLogo,
-    category: "app",
   },
 ];
 
@@ -117,81 +84,42 @@ function ProjectList({ projects }: { projects: typeof apps }) {
   return (
     <div
       className="project-list"
-      style={{ display: "flex", flexDirection: "column", gap: "3.5rem" }}
+      style={{ display: "flex", flexDirection: "column", gap: "2rem" }}
     >
       {projects.map((project, index) => (
         <Reveal key={project.name} delay={(index % 6) * 0.05}>
-          <div
-            className="project-row"
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "baseline",
-              gap: "2rem",
-              flexWrap: "wrap",
-            }}
-          >
-            <div style={{ flex: 1, minWidth: "20rem" }}>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.8rem",
-                }}
-              >
-                <div
-                  style={{
-                    width: "2.4rem",
-                    height: "2.4rem",
-                    borderRadius: "0.4rem",
-                    overflow: "hidden",
-                    flexShrink: 0,
-                  }}
-                >
-                  <img
-                    src={project.logo}
-                    alt={`${project.name} logo`}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      transform: project.roundLogo ? "scale(1.3)" : undefined,
-                    }}
-                  />
-                </div>
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    fontSize: "2rem",
-                    fontWeight: 400,
-                    textDecoration: "none",
-                  }}
-                >
-                  {project.name}
-                </a>
-              </div>
-              <p
-                style={{
-                  fontSize: "1.5rem",
-                  color: "var(--text-muted)",
-                  marginTop: "0.3rem",
-                  lineHeight: 1.5,
-                }}
-              >
-                {project.description}
-              </p>
-            </div>
-            <span
+          <div className="project-row">
+            <div
               style={{
-                fontSize: "1.3rem",
-                color: "var(--text-muted)",
-                whiteSpace: "nowrap",
+                display: "flex",
+                alignItems: "baseline",
+                gap: "0.8rem",
               }}
             >
-              {project.year}
-            </span>
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontSize: "2rem",
+                  fontWeight: 500,
+                  textDecoration: "none",
+                }}
+              >
+                {project.name}
+              </a>
+              {project.isNew && <span className="new-label">new</span>}
+            </div>
+            <p
+              style={{
+                fontSize: "1.5rem",
+                color: "var(--text-secondary)",
+                marginTop: "0.25rem",
+                lineHeight: 1.45,
+              }}
+            >
+              {project.description}
+            </p>
           </div>
         </Reveal>
       ))}
@@ -212,13 +140,13 @@ function ProjectTabs() {
     projectTabs.find((tab) => tab.id === active) ?? projectTabs[0];
 
   return (
-    <section style={{ marginBottom: "4rem" }}>
+    <section style={{ marginBottom: "3.2rem" }}>
       <div
         className="fade-in"
         style={{
           display: "flex",
           gap: "2rem",
-          marginBottom: "2rem",
+          marginBottom: "1.4rem",
           animationDelay: "0.18s",
         }}
       >
@@ -285,10 +213,10 @@ function Home() {
       style={{
         maxWidth: "68rem",
         margin: "0 auto",
-        padding: "8rem 2.4rem 12rem",
+        padding: "5.6rem 2.4rem 8rem",
       }}
     >
-      <header className="fade-in" style={{ marginBottom: "4rem" }}>
+      <header className="fade-in" style={{ marginBottom: "2.4rem" }}>
         <img
           src="/sentra.svg"
           alt="Cyberverse logo"
@@ -298,50 +226,22 @@ function Home() {
 
       <section
         className="fade-in"
-        style={{ marginBottom: "2rem", animationDelay: "0.06s" }}
+        style={{ marginBottom: "2.8rem", animationDelay: "0.06s" }}
       >
         <p
           style={{
             fontSize: "1.7rem",
-            lineHeight: 1.8,
-            color: "var(--text-secondary)",
+            lineHeight: 1.55,
+            color: "var(--text)",
           }}
         >
-          We're a product studio building at the edge of what's possible. We
-          play around with AI, crypto, and apps — but really, it's whatever
-          really feels like the future.
-        </p>
-      </section>
-
-      <section
-        className="fade-in"
-        style={{ marginBottom: "4rem", animationDelay: "0.12s" }}
-      >
-        <p
-          style={{
-            fontSize: "1.7rem",
-            lineHeight: 1.8,
-            color: "var(--text-secondary)",
-          }}
-        >
-          We started Cyberverse because we wanted to build things that make
-          people say{" "}
-          <em
-            style={{
-              fontStyle: "italic",
-              color: "var(--text)",
-            }}
-          >
-            "wait, that's possible?"
-          </em>{" "}
-          . We experiment relentlessly, ship fast, and rebuild what didn't work
-          before, now.
+          wait, that's possible?
         </p>
       </section>
 
       <ProjectTabs />
 
-      <section style={{ marginBottom: "4rem" }}>
+      <section style={{ marginBottom: "3.2rem" }}>
         <Reveal>
           <h2
             style={{
@@ -350,7 +250,7 @@ function Home() {
               letterSpacing: "0.1em",
               textTransform: "uppercase",
               color: "var(--text-muted)",
-              marginBottom: "2rem",
+              marginBottom: "1.4rem",
             }}
           >
             Writing
@@ -359,7 +259,7 @@ function Home() {
 
         <div
           className="project-list"
-          style={{ display: "flex", flexDirection: "column", gap: "3.5rem" }}
+          style={{ display: "flex", flexDirection: "column", gap: "2rem" }}
         >
           {articles.map((article, index) => (
             <Reveal key={article.slug} delay={(index % 6) * 0.05}>
@@ -378,7 +278,7 @@ function Home() {
                   to={`/writing/${article.slug}`}
                   style={{
                     fontSize: "2rem",
-                    fontWeight: 400,
+                    fontWeight: 500,
                     textDecoration: "none",
                   }}
                 >
@@ -387,9 +287,9 @@ function Home() {
                 <p
                   style={{
                     fontSize: "1.5rem",
-                    color: "var(--text-muted)",
-                    marginTop: "0.3rem",
-                    lineHeight: 1.5,
+                    color: "var(--text-secondary)",
+                    marginTop: "0.25rem",
+                    lineHeight: 1.45,
                   }}
                 >
                   {article.description}
@@ -416,7 +316,7 @@ function Home() {
             width: "100%",
             height: "1px",
             background: "var(--border)",
-            margin: "0 0 4rem",
+            margin: "0 0 2.8rem",
           }}
         />
       </Reveal>
@@ -426,8 +326,8 @@ function Home() {
         <p
           style={{
             fontSize: "1.7rem",
-            lineHeight: 1.8,
-            color: "var(--text-secondary)",
+            lineHeight: 1.55,
+            color: "var(--text)",
           }}
         >
           Find me on{" "}
@@ -437,18 +337,6 @@ function Home() {
             rel="noopener noreferrer"
           >
             @thecyberverse
-          </a>{" "}
-          or reach out at{" "}
-          <a href="mailto:ejioforcelestine77@gmail.com">
-            ejioforcelestine77@gmail.com
-          </a>
-          . We're also on{" "}
-          <a
-            href="https://t.me/thecyberverse"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Telegram
           </a>
           .
         </p>

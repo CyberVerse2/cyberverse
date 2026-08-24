@@ -76,7 +76,7 @@ function Article({ slug }: { slug: string }) {
             style={{
               fontSize: "clamp(3.2rem, 6vw, 4.6rem)",
               lineHeight: 1.12,
-              fontWeight: 400,
+              fontWeight: 500,
               letterSpacing: "-0.02em",
               color: "var(--text)",
               marginBottom: "1.6rem",

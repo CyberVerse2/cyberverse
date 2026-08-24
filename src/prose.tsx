@@ -165,7 +165,7 @@ export function Quote({ children }: { children: ReactNode }) {
         lineHeight: 1.5,
         fontStyle: "italic",
         color: "var(--text)",
-        fontWeight: 300,
+        fontWeight: 400,
       }}
     >
       {children}

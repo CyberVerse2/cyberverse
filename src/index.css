@@ -1,14 +1,14 @@
 @import 'tailwindcss';
 
 :root {
-  --bg: #F8F6F1;
-  --text: #041A3B;
-  --text-secondary: rgba(4, 26, 59, 0.6);
-  --text-muted: rgba(4, 26, 59, 0.4);
+  --bg: #FBFBF9;
+  --text: #0B1220;
+  --text-secondary: rgba(11, 18, 32, 0.72);
+  --text-muted: rgba(11, 18, 32, 0.48);
   --accent: #2CB4F4;
-  --link: #041A3B;
+  --link: #0B1220;
   --link-hover: #654FF1;
-  --border: rgba(4, 26, 59, 0.08);
+  --border: rgba(11, 18, 32, 0.1);
   --font: 'Bricolage Grotesque', system-ui, sans-serif;
 
   /* Honkish easing: overshoot springs for delight, expo for smooth slides */
@@ -25,8 +25,8 @@ html {
 body {
   font-family: var(--font);
   font-size: 1.7rem;
-  font-weight: 300;
-  line-height: 1.75;
+  font-weight: 400;
+  line-height: 1.6;
   color: var(--text);
   background-color: var(--bg);
   -webkit-font-smoothing: antialiased;
@@ -87,6 +87,17 @@ a:hover {
 
 
 /* Project row hover — overshoot nudge */
+.new-label {
+  font-size: 1.25rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-muted);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.22em;
+}
+
 .project-row {
   transition: transform 0.22s var(--ease-pop), opacity 0.2s ease;
 }
