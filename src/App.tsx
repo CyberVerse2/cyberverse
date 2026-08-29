@@ -46,13 +46,6 @@ const projects = [
     category: "app",
   },
   {
-    name: "Unbroken",
-    description:
-      "a free and open source tracker to help you create new habits.",
-    url: "https://github.com/CyberVerse2/unbroken",
-    category: "app",
-  },
-  {
     name: "Whot!",
     description:
       "Nigeria's card game except you play against agentic Tinubu.",
