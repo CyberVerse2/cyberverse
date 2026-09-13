@@ -134,16 +134,13 @@ function Home() {
       >
         <p
           style={{
-            fontSize: "1.8rem",
-            fontWeight: 500,
-            lineHeight: 1.4,
+            fontSize: "1.6rem",
+            fontWeight: 400,
+            lineHeight: 1.5,
             color: "var(--text)",
           }}
         >
           wait, that's possible?
-        </p>
-        <p className="intro-description">
-          I'm Cyberverse. I build apps and experiments.
         </p>
       </section>
 
@@ -158,7 +155,7 @@ function Home() {
             color: "var(--text)",
           }}
         >
-          Find me on{" "}
+          <span style={{ color: "var(--text-secondary)" }}>Find me on</span>{" "}
           <a
             href="https://x.com/thecyberverse"
             target="_blank"
